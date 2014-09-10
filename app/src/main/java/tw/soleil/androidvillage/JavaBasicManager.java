@@ -18,9 +18,9 @@ import java.util.List;
 /**
  * Created by edward_chiang on 14/9/11.
  */
-public class JavaBasicChapterManager {
+public class JavaBasicManager extends ChapterManager {
 
-    public static List<Chapter> loadAdapterObjects() {
+    public List<Chapter> loadAdapterObjects() {
 
         ArrayList<Chapter> chapterArrayList = new ArrayList<Chapter>();
 
