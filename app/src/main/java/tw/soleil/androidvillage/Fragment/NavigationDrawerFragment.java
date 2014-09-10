@@ -1,4 +1,4 @@
-package tw.soleil.androidvillage;
+package tw.soleil.androidvillage.Fragment;
 
 
 import android.app.Activity;
@@ -21,6 +21,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import tw.soleil.androidvillage.R;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -102,9 +103,8 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.layout.simple_list_item_activated_1,
                 android.R.id.text1,
                 new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
+                        getString(R.string.title_java_basic),
+                        getString(R.string.title_android_basic),
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

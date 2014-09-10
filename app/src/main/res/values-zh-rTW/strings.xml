@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">安卓村莊</string>
+	<string name="title_java_basic">Thinking in Java</string>
+	<string name="title_android_basic">Android Starter</string>
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+	<string name="action_example">示範</string>
+	<string name="action_settings">設定</string>
+
+</resources>
