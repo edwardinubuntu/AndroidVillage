@@ -3,10 +3,14 @@
 
 	<string name="app_name">安卓實驗室</string>
 	<string name="title_java_basic">Thinking in Java</string>
-	<string name="title_android_basic">Android Starter</string>
+	<string name="title_android_basic">Android 初學特訓班</string>
 	<string name="navigation_drawer_open">Open navigation drawer</string>
 	<string name="navigation_drawer_close">Close navigation drawer</string>
 	<string name="action_example">示範</string>
 	<string name="action_settings">設定</string>
+
+	<string name="setting_about">關於</string>
+	<string name="setting_version_summary">版本內容</string>
+	<string name="setting_version_title">版本</string>
 
 </resources>

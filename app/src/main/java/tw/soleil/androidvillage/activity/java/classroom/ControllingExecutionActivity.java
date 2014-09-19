@@ -130,7 +130,6 @@ public class ControllingExecutionActivity extends ChapterActivity {
                 displayResultText.append("\n");
                 break;
         }
-        displayResultText.append("\n\n");
 
         fullScreenTextView.setText(displayResultText.toString());
     }
