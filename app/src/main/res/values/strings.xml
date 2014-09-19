@@ -9,4 +9,6 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
 
+	<string name="chapter_controlling_execution">Controlling Execution</string>
+
 </resources>

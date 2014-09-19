@@ -20,6 +20,8 @@ import java.util.List;
  */
 public class JavaBasicManager extends ChapterManager {
 
+    public static final int CHAPTER_CONTROLLING_EXECUTION_INDEX = 2;
+
     public List<Chapter> loadAdapterObjects() {
 
         ArrayList<Chapter> chapterArrayList = new ArrayList<Chapter>();

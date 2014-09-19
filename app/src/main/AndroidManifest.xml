@@ -4,12 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_color_android_2"
+        android:icon="@drawable/fish_hook_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".activity.MainActivity"
-            android:logo="@drawable/ic_action_android"
+            android:logo="@drawable/ic_action_lab"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,6 +17,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+	    <activity android:name=".activity.ControllingExecutionActivity"
+	              android:label="@string/chapter_controlling_execution"
+	              android:logo="@drawable/ic_action_lab" />
+
     </application>
 
 </manifest>

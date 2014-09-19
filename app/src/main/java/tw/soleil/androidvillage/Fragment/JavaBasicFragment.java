@@ -10,6 +10,7 @@
 
 package tw.soleil.androidvillage.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,8 @@ import android.widget.ListView;
 import tw.soleil.androidvillage.JavaBasicManager;
 import tw.soleil.androidvillage.Object.Chapter;
 import tw.soleil.androidvillage.R;
-import tw.soleil.androidvillage.adapter.JavaBasicAdapter;
+import tw.soleil.androidvillage.activity.ControllingExecutionActivity;
+import tw.soleil.androidvillage.adapter.ChapterAdapter;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,7 @@ public class JavaBasicFragment extends PlaceholderFragment {
 
     protected ArrayList<Chapter> chapterArrayList;
 
-    protected JavaBasicAdapter javaBasicAdapter;
+    protected ChapterAdapter javaBasicAdapter;
 
     public static JavaBasicFragment newInstance(int sectionNumber) {
         JavaBasicFragment fragment = new JavaBasicFragment();
@@ -46,7 +48,7 @@ public class JavaBasicFragment extends PlaceholderFragment {
 
         chapterArrayList = new ArrayList<Chapter>();
 
-        javaBasicAdapter = new JavaBasicAdapter(getActivity(), android.R.layout.simple_list_item_2, chapterArrayList);
+        javaBasicAdapter = new ChapterAdapter(getActivity(), android.R.layout.simple_list_item_2, chapterArrayList);
     }
 
     @Override
@@ -71,6 +73,15 @@ public class JavaBasicFragment extends PlaceholderFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                switch (position) {
+
+                    // Controlling Execution
+                    case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_INDEX:
+                        Intent intent = new Intent(getActivity(), ControllingExecutionActivity.class);
+                        startActivity(intent);
+                        break;
+                    default:
+                }
             }
         });
 
