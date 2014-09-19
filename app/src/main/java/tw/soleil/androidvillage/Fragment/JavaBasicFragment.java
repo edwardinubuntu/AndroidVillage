@@ -20,7 +20,7 @@ import android.widget.ListView;
 import tw.soleil.androidvillage.JavaBasicManager;
 import tw.soleil.androidvillage.Object.Chapter;
 import tw.soleil.androidvillage.R;
-import tw.soleil.androidvillage.activity.ControllingExecutionActivity;
+import tw.soleil.androidvillage.activity.java.classroom.ControllingExecutionActivity;
 import tw.soleil.androidvillage.adapter.ChapterAdapter;
 
 import java.util.ArrayList;
@@ -78,6 +78,10 @@ public class JavaBasicFragment extends PlaceholderFragment {
                     // Controlling Execution
                     case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_INDEX:
                         Intent intent = new Intent(getActivity(), ControllingExecutionActivity.class);
+                        startActivity(intent);
+                        break;
+                    case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_HOMEWORK:
+                        intent = new Intent(getActivity(), tw.soleil.androidvillage.activity.java.homework.ControllingExecutionActivity.class);
                         startActivity(intent);
                         break;
                     default:

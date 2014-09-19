@@ -72,6 +72,9 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
             case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_INDEX:
                 viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_2));
                 break;
+            case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_HOMEWORK:
+                viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_5));
+                break;
         }
 
         return convertView;

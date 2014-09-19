@@ -19,7 +19,10 @@
             </intent-filter>
         </activity>
 
-	    <activity android:name=".activity.ControllingExecutionActivity"
+	    <activity android:name=".activity.java.classroom.ControllingExecutionActivity"
+	              android:label="@string/chapter_controlling_execution"
+	              android:logo="@drawable/ic_action_lab" />
+	    <activity android:name=".activity.java.homework.ControllingExecutionActivity"
 	              android:label="@string/chapter_controlling_execution"
 	              android:logo="@drawable/ic_action_lab" />
 

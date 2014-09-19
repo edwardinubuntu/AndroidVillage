@@ -21,6 +21,7 @@ import java.util.List;
 public class JavaBasicManager extends ChapterManager {
 
     public static final int CHAPTER_CONTROLLING_EXECUTION_INDEX = 2;
+    public static final int CHAPTER_CONTROLLING_EXECUTION_HOMEWORK = 3;
 
     public List<Chapter> loadAdapterObjects() {
 
@@ -41,6 +42,11 @@ public class JavaBasicManager extends ChapterManager {
         chapter13.setChapterName("Chapter 1.3");
         chapter13.setCaption("Controlling Execution");
         chapterArrayList.add(chapter13);
+
+        Chapter chapter13HomeWork = new Chapter();
+        chapter13HomeWork.setChapterName("Chapter 1.3");
+        chapter13HomeWork.setCaption("Homework");
+        chapterArrayList.add(chapter13HomeWork);
 
         Chapter chapter14 = new Chapter();
         chapter14.setChapterName("Chapter 1.4");
