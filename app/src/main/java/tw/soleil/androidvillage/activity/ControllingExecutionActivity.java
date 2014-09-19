@@ -98,9 +98,36 @@ public class ControllingExecutionActivity extends ChapterActivity {
             displayResultText.append(eachColor);
             displayResultText.append(" ");
             if (eachColor.equalsIgnoreCase("Blue")) {
-                displayResultText.append("Calling break");
+                displayResultText.append("and we calling break...");
                 break;
             }
+        }
+        displayResultText.append("\n\n");
+
+        // Learning switch
+        displayResultText.append("Learning switch");
+        displayResultText.append("\n");
+        int johnId = 1;
+        int annId = 2;
+        switch (johnId) {
+            case 1:
+                displayResultText.append("John's id is 1.");
+                displayResultText.append("\n");
+                break;
+            case 2:
+                displayResultText.append("John's id is 2.");
+                displayResultText.append("\n");
+                break;
+        }
+        switch (annId) {
+            case 1:
+                displayResultText.append("Ann's id is 1.");
+                displayResultText.append("\n");
+                break;
+            case 2:
+                displayResultText.append("Ann's id is 2.");
+                displayResultText.append("\n");
+                break;
         }
         displayResultText.append("\n\n");
 
