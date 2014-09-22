@@ -43,9 +43,11 @@ public class ControllingExecutionActivity extends ChapterActivity {
         // Learning if-else
         displayResultText.append("Learning if-else");
         displayResultText.append("\n");
-        int temperature = 33;
+        int temperature = 24;
         if (temperature > 30) {
             displayResultText.append("Hot weather with temperature " + temperature + " celsius.");
+        } else {
+            displayResultText.append("Cool weather with temperature " + temperature + " celsius.");
         }
         displayResultText.append("\n\n");
 
@@ -53,14 +55,18 @@ public class ControllingExecutionActivity extends ChapterActivity {
         displayResultText.append("Learning true and false");
         displayResultText.append("\n");
         boolean isBigger;
-        isBigger = 5 > 3;
-        displayResultText.append("5 > 3 is " + String.valueOf(isBigger));
+
+        int x = 5;
+        int y = 10;
+
+        isBigger = x > y;
+        displayResultText.append( x +  " > "+ y +" is " + String.valueOf(isBigger));
         displayResultText.append("\n\n");
 
         // Learning Iteration
         displayResultText.append("Learning Iteration");
         displayResultText.append("\n");
-        String[] colors = new String[]{"Red", "Yellow", "Blue", "Green"};
+        String[] colors = new String[]{"Red", "Yellow", "Blue", "Green", "Black"};
         for (int index = 0; index < colors.length; index ++) {
             String eachColor = colors[index];
             displayResultText.append(eachColor);
