@@ -120,8 +120,47 @@ public class AndroidBasicFragment extends PlaceholderFragment {
         currentCharaData22.put(LISTVIEW_SUB_TEXT, "All view in Android.");
         chapterSubData21.add(currentCharaData22);
 
+        HashMap<String, String> currentCharaData23 = new HashMap<String, String>();
+        currentCharaData23.put(LISTVIEW_TITLE, "File Structure");
+        currentCharaData23.put(LISTVIEW_SUB_TEXT, "The file structure of an android project.");
+        chapterSubData21.add(currentCharaData23);
+
+        HashMap<String, String> currentCharaData24 = new HashMap<String, String>();
+        currentCharaData24.put(LISTVIEW_TITLE, "Android Manifest xml");
+        currentCharaData24.put(LISTVIEW_SUB_TEXT, "The file to start the app.");
+        chapterSubData21.add(currentCharaData24);
+
         chapterSubData.add(chapterSubData21);
 
+        // Chapter 3
+        HashMap<String, String> currentChapterData3 = new HashMap<String, String>();
+        currentChapterData3.put(LISTVIEW_TITLE, "Chapter 3 Views");
+        chapterData.add(currentChapterData3);
+
+        ArrayList<HashMap<String, String>> chapterSubData31 =
+                new ArrayList<HashMap<String, String>>();
+
+        HashMap<String, String> currentCharaData31 = new HashMap<String, String>();
+        currentCharaData31.put(LISTVIEW_TITLE, "RelativeLayout");
+        currentCharaData31.put(LISTVIEW_SUB_TEXT, "Put view for relative position.");
+        chapterSubData31.add(currentCharaData31);
+
+        HashMap<String, String> currentCharaData32 = new HashMap<String, String>();
+        currentCharaData32.put(LISTVIEW_TITLE, "TextView");
+        currentCharaData32.put(LISTVIEW_SUB_TEXT, "Place text in view.");
+        chapterSubData31.add(currentCharaData32);
+
+        HashMap<String, String> currentCharaData33 = new HashMap<String, String>();
+        currentCharaData33.put(LISTVIEW_TITLE, "EditText");
+        currentCharaData33.put(LISTVIEW_SUB_TEXT, "Edit text in view.");
+        chapterSubData31.add(currentCharaData33);
+
+        HashMap<String, String> currentCharaData34 = new HashMap<String, String>();
+        currentCharaData34.put(LISTVIEW_TITLE, "Button");
+        currentCharaData34.put(LISTVIEW_SUB_TEXT, "Do in action on buttons.");
+        chapterSubData31.add(currentCharaData34);
+
+        chapterSubData.add(chapterSubData31);
 
         SimpleExpandableListAdapter androidChapterListAdapter = new SimpleExpandableListAdapter(
                 getActivity(),
