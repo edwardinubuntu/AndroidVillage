@@ -23,6 +23,9 @@ public class JavaBasicManager extends ChapterManager {
     public static final int CHAPTER_CONTROLLING_EXECUTION_INDEX = 2;
     public static final int CHAPTER_CONTROLLING_EXECUTION_HOMEWORK = 3;
 
+    public static final int CHAPTER_INITIALIZATION_CLEANUP_INDEX = 4;
+    public static final int CHAPTER_INITIALIZATION_CLEANUP_HOMEWORK = 5;
+
     public List<Chapter> loadAdapterObjects() {
 
         ArrayList<Chapter> chapterArrayList = new ArrayList<Chapter>();

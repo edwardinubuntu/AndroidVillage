@@ -25,6 +25,13 @@
 	              android:label="@string/chapter_controlling_execution"
 	              android:logo="@drawable/ic_action_lab" />
 
+	    <activity android:name=".activity.java.classroom.InitializationCleanupActivity"
+	              android:label="@string/chapter_controlling_execution"
+	              android:logo="@drawable/ic_action_lab" />
+	    <activity android:name=".activity.java.homework.InitializationCleanupActivity"
+	              android:label="@string/chapter_controlling_execution"
+	              android:logo="@drawable/ic_action_lab" />
+
 	    <activity android:name=".activity.SettingsActivity"
 	              android:label="@string/action_settings" />
 

@@ -21,6 +21,7 @@ import tw.soleil.androidvillage.JavaBasicManager;
 import tw.soleil.androidvillage.Object.Chapter;
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.activity.java.classroom.ControllingExecutionActivity;
+import tw.soleil.androidvillage.activity.java.classroom.InitializationCleanupActivity;
 import tw.soleil.androidvillage.adapter.ChapterAdapter;
 
 import java.util.ArrayList;
@@ -82,6 +83,15 @@ public class JavaBasicFragment extends PlaceholderFragment {
                         break;
                     case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_HOMEWORK:
                         intent = new Intent(getActivity(), tw.soleil.androidvillage.activity.java.homework.ControllingExecutionActivity.class);
+                        startActivity(intent);
+                        break;
+                    // Initialization & Cleanup
+                    case JavaBasicManager.CHAPTER_INITIALIZATION_CLEANUP_INDEX:
+                        intent = new Intent(getActivity(), InitializationCleanupActivity.class);
+                        startActivity(intent);
+                        break;
+                    case JavaBasicManager.CHAPTER_INITIALIZATION_CLEANUP_HOMEWORK:
+                        intent = new Intent(getActivity(), tw.soleil.androidvillage.activity.java.homework.InitializationCleanupActivity.class);
                         startActivity(intent);
                         break;
                     default:
