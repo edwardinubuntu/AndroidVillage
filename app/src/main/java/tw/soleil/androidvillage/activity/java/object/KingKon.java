@@ -15,13 +15,25 @@ package tw.soleil.androidvillage.activity.java.object;
  */
 public class KingKon extends Monkey {
 
+    public KingKon() {
+        climbTree = false;
+    }
 
     public KingKon(int weight, int height) {
         super(weight, height);
+        climbTree = false;
     }
 
     @Override
     public String sound() {
         return "WuuuuuuuuWUuuuuu";
+    }
+
+    @Override
+    public String toString() {
+        return "KingKon{" +
+                "weight=" + getWeight() +
+                ", height=" + getHeight() +
+                '}';
     }
 }

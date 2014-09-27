@@ -41,20 +41,36 @@ public class InitializationCleanupActivity extends ChapterActivity {
 
         // Learning Constructor
         displayResultText.append("Learning Guaranteed init with the constructor");
-        displayResultText.append("\n");
-        Monkey monkey = new Monkey(20, 100);
-        displayResultText.append("The monkey is: "+ monkey.toString());
+        displayResultText.append("\n\n");
+        Monkey monkeyEmma = new Monkey(20, 100);
+        monkeyEmma.setName("Emma");
+
+        Monkey monkeyJohn = new Monkey();
+        monkeyJohn.setName("John");
+        monkeyJohn.setHeight(120);
+        monkeyJohn.setWeight(25);
+
+        displayResultText.append("The monkey Emma is: "+ monkeyEmma.toString());
+        displayResultText.append("\n\n");
+        displayResultText.append("The monkey John is: "+ monkeyJohn.toString());
+
+        displayResultText.append("\n\n");
+        if (monkeyEmma.getHeight() >= monkeyJohn.getHeight()) {
+            displayResultText.append("Emma is higher than John.");
+        } else {
+            displayResultText.append("Emma is shorter than John.");
+        }
         displayResultText.append("\n\n");
 
         // Learning Method overloading
-        displayResultText.append("displayResultText.append(\"\\n\\n\");");
         displayResultText.append("\n");
 
-        monkey = new Monkey(20, 100);
-        displayResultText.append("The monkey is: "+ monkey.toString());
+        Monkey monkey = new Monkey(20, 100);
+        displayResultText.append("The monkey sound is: "+ monkey.sound() + ". Can climb tree? "+ monkey.canClimbTree());
+        displayResultText.append("\n");
 
         KingKon kingKon = new KingKon(50, 120);
-        displayResultText.append("The kingKon is: "+ kingKon.toString());
+        displayResultText.append("The kingKon sound is: "+ kingKon.sound()+ ". Can climb tree? "+ kingKon.canClimbTree());
         displayResultText.append("\n\n");
 
         // Learning default constructors
@@ -62,7 +78,7 @@ public class InitializationCleanupActivity extends ChapterActivity {
         displayResultText.append("The monkey is: "+ monkey.toString());
         displayResultText.append("\n\n");
 
-        kingKon = new KingKon(50, 120);
+        kingKon = new KingKon();
         displayResultText.append("The kingKon is: "+ kingKon.toString());
         displayResultText.append("\n\n");
 

@@ -19,12 +19,26 @@ public class Monkey {
 
     private int height;
 
+    private String name;
+
+    protected boolean climbTree;
+
     public Monkey() {
+        climbTree = true;
     }
 
     public Monkey(int weight, int height) {
+        climbTree = true;
         this.weight = weight;
         this.height = height;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getWeight() {
@@ -47,11 +61,17 @@ public class Monkey {
         return "Heeeeeeeeeee";
     }
 
+    public boolean canClimbTree() {
+        return climbTree;
+    }
+
     @Override
     public String toString() {
         return "Monkey{" +
                 "weight=" + weight +
                 ", height=" + height +
+                ", name='" + name + '\'' +
+                ", climbTree=" + climbTree +
                 '}';
     }
 }
