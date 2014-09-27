@@ -8,45 +8,12 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package tw.soleil.androidvillage.activity.java.homework;
+package tw.soleil.androidvillage.activity;
 
-import android.os.Bundle;
-import android.widget.TextView;
-import tw.soleil.androidvillage.R;
-import tw.soleil.androidvillage.activity.ChapterActivity;
+import android.app.Activity;
 
 /**
  * Created by edward_chiang on 14/9/27.
  */
-public class InitializationCleanupActivity extends ChapterActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_full_screen_text_view);
-
-    }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-
-        TextView fullScreenTextView = (TextView)findViewById(R.id.full_screen_text_view);
-
-        // Start class here
-        StringBuffer displayResultText = new StringBuffer();
-
-        // TODO Define an ape, and extend from monkey object.
-
-        // Monkey
-
-        // Ape
-
-        // Kingkon
-
-        // Print their toString(), show color on screen.
-
-        fullScreenTextView.setText(displayResultText.toString());
-    }
+public class AboutActivity extends Activity {
 }

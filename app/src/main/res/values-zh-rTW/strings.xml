@@ -8,6 +8,7 @@
 	<string name="navigation_drawer_close">Close navigation drawer</string>
 	<string name="action_example">示範</string>
 	<string name="action_settings">設定</string>
+	<string name="action_about">關於</string>
 
 	<string name="setting_about">關於</string>
 	<string name="setting_version_summary">版本內容</string>
