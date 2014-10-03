@@ -70,15 +70,13 @@ public class ChapterAdapter extends ArrayAdapter<Chapter> {
 
         switch (position) {
             case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_INDEX:
+            case JavaBasicManager.CHAPTER_INITIALIZATION_CLEANUP_INDEX:
+            case JavaBasicManager.CHAPTER_ACCESS_CONTROL_INDEX:
                 viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_2));
                 break;
             case JavaBasicManager.CHAPTER_CONTROLLING_EXECUTION_HOMEWORK:
-                viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_5));
-                break;
-            case JavaBasicManager.CHAPTER_INITIALIZATION_CLEANUP_INDEX:
-                viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_2));
-                break;
             case JavaBasicManager.CHAPTER_INITIALIZATION_CLEANUP_HOMEWORK:
+            case JavaBasicManager.CHAPTER_ACCESS_CONTROL_HOMEWORK:
                 viewHolder.captionTextView.setTextColor(getContext().getResources().getColor(R.color.theme_color_5));
                 break;
         }

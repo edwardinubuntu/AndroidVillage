@@ -12,6 +12,8 @@
 
 	<string name="chapter_controlling_execution">Controlling Execution</string>
 
+	<string name="chapter_access_control">Access Control</string>
+
 	<string name="setting_about">About</string>
 	<string name="setting_version_summary">Version Summary</string>
 	<string name="setting_version_title">Version</string>

@@ -26,6 +26,9 @@ public class JavaBasicManager extends ChapterManager {
     public static final int CHAPTER_INITIALIZATION_CLEANUP_INDEX = 4;
     public static final int CHAPTER_INITIALIZATION_CLEANUP_HOMEWORK = 5;
 
+    public static final int CHAPTER_ACCESS_CONTROL_INDEX = 6;
+    public static final int CHAPTER_ACCESS_CONTROL_HOMEWORK = 7;
+
     public List<Chapter> loadAdapterObjects() {
 
         ArrayList<Chapter> chapterArrayList = new ArrayList<Chapter>();
@@ -55,6 +58,21 @@ public class JavaBasicManager extends ChapterManager {
         chapter14.setChapterName("Chapter 1.4");
         chapter14.setCaption("Initialization & Cleanup");
         chapterArrayList.add(chapter14);
+
+        Chapter chapter14HomeWork = new Chapter();
+        chapter14HomeWork.setChapterName("Chapter 1.4");
+        chapter14HomeWork.setCaption("Homework");
+        chapterArrayList.add(chapter14HomeWork);
+
+        Chapter chapter15 = new Chapter();
+        chapter15.setChapterName("Chapter 1.5");
+        chapter15.setCaption("Access Control");
+        chapterArrayList.add(chapter15);
+
+        Chapter chapter15HomeWork = new Chapter();
+        chapter15HomeWork.setChapterName("Chapter 1.5");
+        chapter15HomeWork.setCaption("Homework");
+        chapterArrayList.add(chapter15HomeWork);
 
         Chapter chapter21 = new Chapter();
         chapter21.setChapterName("Chapter 2.1");
