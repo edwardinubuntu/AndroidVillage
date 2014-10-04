@@ -78,12 +78,13 @@ public class InitializationCleanupActivity extends ChapterActivity {
         displayResultText.append("The monkey is: "+ monkey.toString());
         displayResultText.append("\n\n");
 
-        kingKon = new KingKon();
+        kingKon = new KingKon(50,100);
         displayResultText.append("The kingKon is: "+ kingKon.toString());
         displayResultText.append("\n\n");
 
         // Learning Method Overloading
-        displayResultText.append("The kingKon sound: "+ kingKon.sound());
+        kingKon.setColor("gray");
+        displayResultText.append("The kingKon sound: "+ kingKon.sound() +", color :" + kingKon.getColor());
         displayResultText.append("\n\n");
 
         // Learning Method Overloading

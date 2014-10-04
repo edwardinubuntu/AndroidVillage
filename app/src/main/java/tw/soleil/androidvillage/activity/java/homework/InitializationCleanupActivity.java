@@ -14,6 +14,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.activity.ChapterActivity;
+import tw.soleil.androidvillage.activity.java.object.Ape;
+import tw.soleil.androidvillage.activity.java.object.KingKon;
+import tw.soleil.androidvillage.activity.java.object.Monkey;
 
 /**
  * Created by edward_chiang on 14/9/27.
@@ -37,15 +40,30 @@ public class InitializationCleanupActivity extends ChapterActivity {
         // Start class here
         StringBuffer displayResultText = new StringBuffer();
 
-        // TODO Define an ape, and extend from monkey object.
+        Ape sharmon = new Ape();
+        sharmon.setName("sharmon");
+        sharmon.setWeight(20);
+        sharmon.setHeight(100);
+        sharmon.setColor("brown");
+        displayResultText.append("The sharmon is: " + sharmon.toString());
+        displayResultText.append("\n\n");
 
-        // Monkey
 
-        // Ape
+        KingKon feebogdy = new KingKon(20,100);
+        feebogdy.setName("feebogdy");
+        feebogdy.setColor("black and gray");
 
-        // Kingkon
+        displayResultText.append("The feebogdy is: "+ feebogdy.toString());
+        displayResultText.append("\n\n");
 
-        // Print their toString(), show color on screen.
+        Monkey sailmon = new Monkey();
+        sailmon.setName("sailmon");
+        sailmon.setWeight(30);
+        sailmon.setHeight(90);
+        sailmon.setColor("red and brown");
+        displayResultText.append("The sailmon is: "+ sailmon.toString());
+        displayResultText.append("\n\n");
+
 
         fullScreenTextView.setText(displayResultText.toString());
     }

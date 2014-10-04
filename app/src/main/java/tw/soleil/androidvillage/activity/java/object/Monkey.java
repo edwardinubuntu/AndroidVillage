@@ -15,6 +15,8 @@ package tw.soleil.androidvillage.activity.java.object;
  */
 public class Monkey {
 
+    private String color;
+
     private int weight;
 
     private int height;
@@ -65,10 +67,19 @@ public class Monkey {
         return climbTree;
     }
 
+    public void setColor (String color) {
+        this.color = color;
+    }
+
+    public String getColor(){
+        return color;
+    }
+
     @Override
     public String toString() {
         return "Monkey{" +
-                "weight=" + weight +
+                "color='" + color + '\'' +
+                ", weight=" + weight +
                 ", height=" + height +
                 ", name='" + name + '\'' +
                 ", climbTree=" + climbTree +

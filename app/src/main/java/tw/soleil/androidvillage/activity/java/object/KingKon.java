@@ -22,6 +22,7 @@ public class KingKon extends Monkey {
     public KingKon(int weight, int height) {
         super(weight, height);
         climbTree = false;
+        setColor("black");
     }
 
     @Override
@@ -29,11 +30,7 @@ public class KingKon extends Monkey {
         return "WuuuuuuuuWUuuuuu";
     }
 
-    @Override
-    public String toString() {
-        return "KingKon{" +
-                "weight=" + getWeight() +
-                ", height=" + getHeight() +
-                '}';
-    }
+
+
+
 }
