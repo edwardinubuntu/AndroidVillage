@@ -100,6 +100,9 @@ public class JavaBasicFragment extends PlaceholderFragment {
                         intent = new Intent(getActivity(), AccessControlActivity.class);
                         startActivity(intent);
                         break;
+                    case JavaBasicManager.CHAPTER_ACCESS_CONTROL_HOMEWORK:
+                        intent = new Intent(getActivity(), tw.soleil.androidvillage.activity.java.homework.AccessControlActivity.class);
+                        startActivity(intent);
                     default:
                 }
             }

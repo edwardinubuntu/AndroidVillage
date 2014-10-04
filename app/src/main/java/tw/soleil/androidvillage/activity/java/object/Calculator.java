@@ -16,4 +16,9 @@ package tw.soleil.androidvillage.activity.java.object;
 public interface Calculator {
 
     public double calculateArea();
+
+    // TODO calculateCircumference()
+
+    // TODO calculatePerimeter()
+
 }
