@@ -36,6 +36,10 @@
 	              android:label="@string/chapter_access_control"
 	              android:logo="@drawable/ic_action_lab" />
 
+	    <activity android:name=".activity.android.CalculateActivity"
+	              android:label="@string/chapter_views"
+	              android:logo="@drawable/ic_action_lab" />
+
 	    <activity android:name=".activity.SettingsActivity"
 	              android:label="@string/action_settings" />
 
