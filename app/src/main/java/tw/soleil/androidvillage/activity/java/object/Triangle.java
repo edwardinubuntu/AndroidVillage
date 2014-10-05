@@ -19,6 +19,10 @@ public class Triangle extends Shape {
         super(width, height);
     }
 
+    public Triangle() {
+        
+    }
+
     @Override
     public ShapeType getType() {
         return ShapeType.Triangle;

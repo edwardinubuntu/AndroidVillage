@@ -14,11 +14,9 @@ package tw.soleil.androidvillage.activity.java.object;
  * Created by edward_chiang on 14/10/4.
  */
 public interface Calculator {
+           public Triangle (int )
 
-    public double calculateArea();
 
-    // TODO calculateCircumference()
 
-    // TODO calculatePerimeter()
 
 }

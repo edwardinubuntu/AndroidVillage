@@ -19,7 +19,6 @@ enum ShapeType {
 }
 
 public abstract class Shape implements Calculator {
-
     public abstract ShapeType getType();
 
     private double width;
