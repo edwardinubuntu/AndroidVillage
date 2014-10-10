@@ -9,7 +9,7 @@ public class Ape extends Monkey  {
     climbTree = false;
 }
 
-    public Ape(int weight, int height) {
+    public Ape (int weight, int height) {
         super(weight, height);
         climbTree = false;
         setColor("brown");
