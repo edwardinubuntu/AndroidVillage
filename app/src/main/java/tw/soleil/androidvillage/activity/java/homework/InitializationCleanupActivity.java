@@ -27,7 +27,7 @@ public class InitializationCleanupActivity extends ChapterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_full_screen_text_view);
+        setContentView(R.layout.fragment_math_shape);
 
     }
 

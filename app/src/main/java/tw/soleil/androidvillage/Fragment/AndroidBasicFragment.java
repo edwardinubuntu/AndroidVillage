@@ -10,7 +10,6 @@
 
 package tw.soleil.androidvillage.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import tw.soleil.androidvillage.R;
-import tw.soleil.androidvillage.activity.android.CalculateActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -184,13 +182,7 @@ public class AndroidBasicFragment extends PlaceholderFragment {
     private final ExpandableListView.OnChildClickListener servicesListClickListner = new ExpandableListView.OnChildClickListener() {
         @Override
         public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-            if (groupPosition == 2 && childPosition == 3) {
 
-                Intent caculateIntent = new Intent(getActivity(), CalculateActivity.class);
-                getActivity().startActivity(caculateIntent);
-
-                return true;
-            }
             return false;
         }
     };

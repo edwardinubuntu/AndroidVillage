@@ -9,10 +9,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import tw.soleil.androidvillage.Fragment.AndroidBasicFragment;
-import tw.soleil.androidvillage.Fragment.JavaBasicFragment;
-import tw.soleil.androidvillage.Fragment.NavigationDrawerFragment;
-import tw.soleil.androidvillage.Fragment.PlaceholderFragment;
+import tw.soleil.androidvillage.Fragment.*;
 import tw.soleil.androidvillage.R;
 
 
@@ -57,6 +54,9 @@ public class MainActivity extends Activity
             case 1:
                 fragment = AndroidBasicFragment.newInstance(position + 1);
                 break;
+            case 2:
+                fragment = MathWithShapeFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -73,6 +73,9 @@ public class MainActivity extends Activity
                 break;
             case 2:
                 mTitle = getString(R.string.title_android_basic);
+                break;
+            case 3:
+                mTitle = getString(R.string.title_calculate_math);
                 break;
         }
     }
