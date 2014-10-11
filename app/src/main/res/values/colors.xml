@@ -15,4 +15,7 @@
 	<color name="theme_color_3">#F09DA2</color>
 	<color name="theme_color_4">#d43f3a</color>
 	<color name="theme_color_5">#99CC00</color>
+	
+	<color name="theme_black">#000000</color>
+	<color name="theme_white">#FFFFFF</color>
 </resources>
