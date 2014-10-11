@@ -65,9 +65,7 @@ public class MathWithShapeFragment extends PlaceholderFragment {
             }
         });
 
-        // http://developer.android.com/reference/android/text/InputType.html
-//        radiusEditText.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
-
+        // TODO Calculate square calculatePerimeter &  circle calculateCircumference
         return rootView;
     }
 
