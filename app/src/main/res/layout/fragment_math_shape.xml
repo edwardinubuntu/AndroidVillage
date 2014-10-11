@@ -72,7 +72,7 @@
 					android:layout_gravity="center_horizontal"/>
 
 
-			</LinearLayout>
+            </LinearLayout>
 
 			<Button
 				style="?android:attr/buttonStyleSmall"
@@ -83,6 +83,54 @@
 				android:layout_gravity="center_horizontal"/>
 
 
-		</LinearLayout>
+            <LinearLayout
+                android:background="@drawable/round_rect_shape"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/rectangle_width_Edit_text"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:id="@+id/rectangle_height_Edit_text"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="@string/shape_calculate_rectangle_area_button"
+                    android:id="@+id/calculate_rectangle_Area"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="120dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:background="@drawable/round_rect_shape"
+                android:textColor="@color/theme_white"
+                android:padding="10dp"
+                android:text="0"
+                android:id="@+id/rectangle_answer_text_view"
+                android:layout_gravity="center_horizontal"/>
+
+
+        </LinearLayout>
 	</ScrollView>
 </LinearLayout>

@@ -21,5 +21,6 @@
 	<string name="shape_calculate_circle_area_button">計算圓形面積</string>
 
 	<string name="shape_string_convert_error">你輸入的不是合法數字</string>
+    <string name="shape_calculate_rectangle_area_button">計算長方形面積</string>
 
 </resources>

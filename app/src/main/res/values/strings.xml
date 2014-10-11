@@ -30,5 +30,6 @@
 	<string name="shape_calculate_circle_area_button">Calculate Circle Area</string>
 	
 	<string name="shape_string_convert_error">You input a invalid number.</string>
+    <string name="shape_calculate_rectangle_area_button">calculate rectangle area</string>
 
 </resources>
