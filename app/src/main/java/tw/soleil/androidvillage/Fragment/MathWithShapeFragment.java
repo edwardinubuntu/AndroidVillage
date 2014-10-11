@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.activity.java.object.Circle;
+import tw.soleil.androidvillage.activity.java.object.Rectangular;
 
 /**
  * Created by edward_chiang on 14/10/11.
@@ -64,6 +65,34 @@ public class MathWithShapeFragment extends PlaceholderFragment {
                 return true;
             }
         });
+
+
+        final EditText rectangleheightEditText = (EditText)rootView.findViewById(R.id.rectangle_height_Edit_text);
+        final EditText rectanglewidthEditText = (EditText)rootView.findViewById(R.id.rectangle_width_Edit_text);
+        final TextView rectangleCalculateResultView = (TextView)rootView.findViewById(R.id.rectangle_answer_text_view);
+        final Button rectangleCalculateButton = (Button)rootView.findViewById(R.id.calculate_rectangle_Area);
+
+        rectangleCalculateButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                Rectangular rectangleOnView = new Rectangular(0,0);
+
+                    // String convert to double
+                    try {
+                        rectangleOnView.setRectangle(Double.parseDouble(rectangleheightEditText.getText().toString()));
+                        rectangleOnView.setRectangle(Double.parseDouble(rectanglewidthEditText.getText().toString()));
+                        rectangleCalculateResultView.setText(String.valueOf(rectangleOnView.calculateArea()));
+                    } catch (NumberFormatException numberFormatException) {
+                        rectangleCalculateResultView.setText(getString(R.string.shape_string_convert_error));
+                    }
+
+
+
+                return true;
+            }
+        });
+
 
         // TODO Calculate square calculatePerimeter &  circle calculateCircumference
         return rootView;
