@@ -14,4 +14,12 @@
 	<string name="setting_version_summary">版本內容</string>
 	<string name="setting_version_title">版本</string>
 
+	<string name="circle_title">圓形</string>
+	<string name="Radius">半徑</string>
+
+	<string name="shape_calculate_answer">答案: </string>
+	<string name="shape_calculate_circle_area_button">計算圓形面積</string>
+
+	<string name="shape_string_convert_error">你輸入的不是合法數字</string>
+
 </resources>

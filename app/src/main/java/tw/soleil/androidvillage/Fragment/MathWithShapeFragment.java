@@ -11,8 +11,10 @@
 package tw.soleil.androidvillage.Fragment;
 
 import android.os.Bundle;
-import android.view.*;
-import android.view.inputmethod.EditorInfo;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,10 +50,15 @@ public class MathWithShapeFragment extends PlaceholderFragment {
                 Circle circleOnView = new Circle();
                 if (radiusEditText.getText() != null) {
 
-                    // String convert to float
-                    circleOnView.setRadius(Double.parseDouble(radiusEditText.getText().toString()));
+                    // String convert to double
+                    try {
+                        circleOnView.setRadius(Double.parseDouble(radiusEditText.getText().toString()));
+                        radiusCalculateResultView.setText(String.valueOf(circleOnView.calculateArea()));
+                    } catch (NumberFormatException numberFormatException) {
+                        radiusCalculateResultView.setText(getString(R.string.shape_string_convert_error));
+                    }
 
-                    radiusCalculateResultView.setText(String.valueOf(circleOnView.calculateArea()));
+
                 }
 
                 return true;
@@ -59,7 +66,7 @@ public class MathWithShapeFragment extends PlaceholderFragment {
         });
 
         // http://developer.android.com/reference/android/text/InputType.html
-        radiusEditText.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
+//        radiusEditText.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
 
         return rootView;
     }
