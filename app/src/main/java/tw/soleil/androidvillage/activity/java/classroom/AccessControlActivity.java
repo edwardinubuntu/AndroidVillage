@@ -25,7 +25,7 @@ public class AccessControlActivity extends ChapterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fragment_math_shape);
+        setContentView(R.layout.activity_full_screen_text_view);
 
     }
 
@@ -63,6 +63,7 @@ public class AccessControlActivity extends ChapterActivity {
         displayResultText.append("The Rectangular width is: " + rectangular.getWidth() + ", height is: "
                 +rectangular.getHeight()+" and the area is: " + rectangular.calculateArea());
         displayResultText.append("\n");
+
         Square square = new Square(10, 10);
         displayResultText.append("The Rectangular width is: " + square.getWidth() + ", height is: "
                 +square.getHeight()+" and the area is: " + square.calculateArea());

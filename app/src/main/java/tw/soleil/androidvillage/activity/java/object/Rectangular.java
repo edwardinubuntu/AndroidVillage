@@ -28,4 +28,14 @@ public class Rectangular extends Shape {
     public double calculateArea() {
         return getHeight() * getWidth();
     }
+
+    @Override
+    public double calculatePerimeter() {
+    return (getHeight() + getWidth()) * 2;
+    }
+
+    @Override
+    public double calculateCircumference() {
+        return 0;
+    }
 }

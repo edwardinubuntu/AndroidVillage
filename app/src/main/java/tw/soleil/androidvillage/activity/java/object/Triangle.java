@@ -32,4 +32,14 @@ public class Triangle extends Shape {
     public double calculateArea() {
         return getWidth() * getHeight() / 2;
     }
+
+    @Override
+    public double calculatePerimeter() {
+        return 0;
+    }
+
+    @Override
+    public double calculateCircumference() {
+        return 0;
+    }
 }

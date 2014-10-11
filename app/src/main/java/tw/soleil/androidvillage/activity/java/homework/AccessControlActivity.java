@@ -14,6 +14,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.activity.ChapterActivity;
+import tw.soleil.androidvillage.activity.java.object.Circle;
+import tw.soleil.androidvillage.activity.java.object.Rectangular;
+import tw.soleil.androidvillage.activity.java.object.Shape;
+import tw.soleil.androidvillage.activity.java.object.Square;
 
 /**
  * Created by edward_chiang on 14/10/4.
@@ -24,7 +28,7 @@ public class AccessControlActivity extends ChapterActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.fragment_math_shape);
+        setContentView(R.layout.activity_full_screen_text_view);
 
     }
 
@@ -40,8 +44,22 @@ public class AccessControlActivity extends ChapterActivity {
         // Learning Calculate borderLength()
         displayResultText.append("Learning Interface with class");
         displayResultText.append("\n");
+        Circle circle = new Circle(10);
+        displayResultText.append("The Circle radius is: " + circle.getRadius() + ", and the circumference is: " + circle.calculateCircumference());
 
-        // TODO Add calculator calculateCircumference(), calculatePerimeter()
+        displayResultText.append("\n");
+
+
+        Shape square = new Square(10, 10);
+        displayResultText.append("The Square width is: " + square.getWidth() + ", height is: "
+                + square.getHeight() + " and the perimeter is: " + square.calculatePerimeter());
+        displayResultText.append("\n");
+
+
+        Shape rectangular = new Rectangular(5, 10);
+        displayResultText.append("The Rectangular width is: " + rectangular.getWidth() + ", height is: "
+                +rectangular.getHeight()+" and the perimeter is: " + rectangular.calculatePerimeter());
+        displayResultText.append("\n");
 
         displayResultText.append("\n\n");
 
