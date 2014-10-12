@@ -80,8 +80,8 @@ public class MathWithShapeFragment extends PlaceholderFragment {
 
                     // String convert to double
                     try {
-                        rectangleOnView.setRectangle(Double.parseDouble(rectangleheightEditText.getText().toString()));
-                        rectangleOnView.setRectangle(Double.parseDouble(rectanglewidthEditText.getText().toString()));
+                        rectangleOnView.setWidth(Integer.parseInt(rectangleheightEditText.getText().toString()));
+//                        rectangleOnView.setRectangle(Double.parseDouble(rectanglewidthEditText.getText().toString()));
                         rectangleCalculateResultView.setText(String.valueOf(rectangleOnView.calculateArea()));
                     } catch (NumberFormatException numberFormatException) {
                         rectangleCalculateResultView.setText(getString(R.string.shape_string_convert_error));
