@@ -56,7 +56,7 @@ public class AccessControlActivity extends ChapterActivity {
         displayResultText.append("\n");
 
 
-        Shape rectangular = new Rectangular(5, 10);
+        Shape rectangular = new Rectangular();
         displayResultText.append("The Rectangular width is: " + rectangular.getWidth() + ", height is: "
                 +rectangular.getHeight()+" and the perimeter is: " + rectangular.calculatePerimeter());
         displayResultText.append("\n");

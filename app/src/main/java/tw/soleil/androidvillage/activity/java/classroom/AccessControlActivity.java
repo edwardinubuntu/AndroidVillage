@@ -59,7 +59,7 @@ public class AccessControlActivity extends ChapterActivity {
         // Learning shape
         displayResultText.append("Learning Interface with override");
         displayResultText.append("\n");
-        Shape rectangular = new Rectangular(5, 10);
+        Shape rectangular = new Rectangular();
         displayResultText.append("The Rectangular width is: " + rectangular.getWidth() + ", height is: "
                 +rectangular.getHeight()+" and the area is: " + rectangular.calculateArea());
         displayResultText.append("\n");

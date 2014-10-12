@@ -16,7 +16,7 @@ package tw.soleil.androidvillage.activity.java.object;
 public class Square extends Rectangular {
 
     public Square(int width, int height) {
-        super(width, height);
+        super();
     }
 
     public boolean isValidShape() {

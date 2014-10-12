@@ -15,8 +15,8 @@ package tw.soleil.androidvillage.activity.java.object;
  */
 public class Rectangular extends Shape {
 
-    public Rectangular(double,double) {
-        super(width, height);
+    public Rectangular() {
+        super();
     }
 
     @Override
