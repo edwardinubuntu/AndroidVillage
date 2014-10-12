@@ -15,7 +15,7 @@ package tw.soleil.androidvillage.activity.java.object;
  */
 public class Rectangular extends Shape {
 
-    public Rectangular(int width, int height) {
+    public Rectangular(double,double) {
         super(width, height);
     }
 
@@ -38,6 +38,5 @@ public class Rectangular extends Shape {
     public double calculateCircumference() {
         return 0;
     }
-
 
 }
