@@ -11,6 +11,7 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
@@ -109,15 +110,19 @@
 
                     </LinearLayout>
 
-                <Button
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:text="@string/shape_calculate_rectangle_area_button"
-                    android:id="@+id/calculate_rectangle_Area"
-                    android:layout_gravity="center_horizontal"/>
+	            <com.beardedhen.androidbootstrap.BootstrapButton
+		            bootstrapbutton:bb_text_gravity="center"
+		            bootstrapbutton:bb_roundedCorners="true"
+		            bootstrapbutton:bb_type="warning"
+		            android:layout_margin="15dp"
+		            android:layout_weight="1"
+		            android:layout_width="fill_parent"
+		            android:layout_height="fill_parent"
+		            android:text="@string/shape_calculate_rectangle_area_button"
+		            android:id="@+id/calculate_rectangle_Area"
+		            android:layout_gravity="center_horizontal"
+		            />
+
             </LinearLayout>
             <TextView
                 android:layout_width="fill_parent"

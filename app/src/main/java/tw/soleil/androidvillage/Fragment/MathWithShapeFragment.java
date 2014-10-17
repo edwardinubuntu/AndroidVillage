@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.activity.java.object.Circle;
 import tw.soleil.androidvillage.activity.java.object.Rectangular;
@@ -70,7 +71,7 @@ public class MathWithShapeFragment extends PlaceholderFragment {
         final EditText rectangleheightEditText = (EditText)rootView.findViewById(R.id.rectangle_height_Edit_text);
         final EditText rectanglewidthEditText = (EditText)rootView.findViewById(R.id.rectangle_width_Edit_text);
         final TextView rectangleCalculateResultView = (TextView)rootView.findViewById(R.id.rectangle_answer_text_view);
-        final Button rectangleCalculateButton = (Button)rootView.findViewById(R.id.calculate_rectangle_Area);
+        final BootstrapButton rectangleCalculateButton = (BootstrapButton)rootView.findViewById(R.id.calculate_rectangle_Area);
 
         rectangleCalculateButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
