@@ -68,8 +68,8 @@ public class MathWithShapeFragment extends PlaceholderFragment {
         });
 
 
-        final EditText rectangleheightEditText = (EditText)rootView.findViewById(R.id.rectangle_height_Edit_text);
-        final EditText rectanglewidthEditText = (EditText)rootView.findViewById(R.id.rectangle_width_Edit_text);
+        final EditText rectangleHeightEditText = (EditText)rootView.findViewById(R.id.rectangle_height_Edit_text);
+        final EditText rectangleWidthEditText = (EditText)rootView.findViewById(R.id.rectangle_width_Edit_text);
         final TextView rectangleCalculateResultView = (TextView)rootView.findViewById(R.id.rectangle_answer_text_view);
         final BootstrapButton rectangleCalculateButton = (BootstrapButton)rootView.findViewById(R.id.calculate_rectangle_Area);
 
@@ -79,8 +79,8 @@ public class MathWithShapeFragment extends PlaceholderFragment {
 
                 Rectangular rectangleOnView = new Rectangular();
                     try {
-                        rectangleOnView.setWidth(Integer.parseInt(rectangleheightEditText.getText().toString()));
-                        rectangleOnView.setHeight(Integer.parseInt(rectangleheightEditText.getText().toString()));
+                        rectangleOnView.setWidth(Double.parseDouble(rectangleWidthEditText.getText().toString()));
+                        rectangleOnView.setHeight(Double.parseDouble(rectangleHeightEditText.getText().toString()));
                         rectangleCalculateResultView.setText(String.valueOf(rectangleOnView.calculateArea()));
                     } catch (NumberFormatException numberFormatException) {
                         rectangleCalculateResultView.setText(getString(R.string.shape_string_convert_error));

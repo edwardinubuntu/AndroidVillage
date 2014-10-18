@@ -30,7 +30,7 @@ public abstract class Shape implements Calculator {
         this.height = 0;
     }
 
-    public Shape(int width, int height) {
+    public Shape(double width, double height) {
         this.width = width;
         this.height = height;
     }
@@ -39,7 +39,7 @@ public abstract class Shape implements Calculator {
         return width;
     }
 
-    public void setWidth(int width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
@@ -47,7 +47,7 @@ public abstract class Shape implements Calculator {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
