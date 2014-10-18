@@ -113,12 +113,13 @@
 	            <com.beardedhen.androidbootstrap.BootstrapButton
 		            bootstrapbutton:bb_text_gravity="center"
 		            bootstrapbutton:bb_roundedCorners="true"
-		            bootstrapbutton:bb_type="warning"
+		            bootstrapbutton:bb_type="success"
 		            android:layout_margin="15dp"
 		            android:layout_weight="1"
 		            android:layout_width="fill_parent"
 		            android:layout_height="fill_parent"
 		            android:text="@string/shape_calculate_rectangle_area_button"
+                    bootstrapbutton:bb_icon_left="fa-superscript"
 		            android:id="@+id/calculate_rectangle_Area"
 		            android:layout_gravity="center_horizontal"
 		            />

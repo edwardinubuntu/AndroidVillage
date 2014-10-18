@@ -57,6 +57,9 @@ public class MainActivity extends Activity
             case 2:
                 fragment = MathWithShapeFragment.newInstance(position + 1);
                 break;
+            case 3:
+                fragment = CalculatorFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -76,6 +79,9 @@ public class MainActivity extends Activity
                 break;
             case 3:
                 mTitle = getString(R.string.title_calculate_math);
+                break;
+            case 4:
+                mTitle = "calculator";
                 break;
         }
     }
