@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="70dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+
+    <RadioButton
+        android:layout_width="0dp"
+        android:layout_height="79dp"
+        android:text="HAMBURGER"
+        android:id="@+id/radioButton_hamburger"
+        android:layout_weight="0.88" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.11"></LinearLayout>
+
+    <RadioButton
+        android:layout_width="169dp"
+        android:layout_height="91dp"
+        android:text="FRENCH FRIES"
+        android:id="@+id/radioButton_french fries" />
+
+</LinearLayout>

@@ -43,6 +43,12 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1" />
 
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="*"
+            android:id="@+id/button_time" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -72,6 +78,12 @@
             android:text="6"
             android:id="@+id/button_six"
             android:layout_weight="1" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:id="@+id/button_minus"
+            android:text="-" />
     </LinearLayout>
 
     <LinearLayout
@@ -102,6 +114,12 @@
             android:id="@+id/button_nine"
             android:layout_weight="1" />
 
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="/"
+            android:id="@+id/button_divide" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -114,7 +132,7 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="65dp"
+            android:layout_height="match_parent"
             android:text="="
             android:id="@+id/button_equal"
             android:layout_weight="1.04" />
