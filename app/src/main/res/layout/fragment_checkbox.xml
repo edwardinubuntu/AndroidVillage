@@ -24,6 +24,6 @@
         android:layout_width="169dp"
         android:layout_height="91dp"
         android:text="FRENCH FRIES"
-        android:id="@+id/radioButton_french fries" />
+        android:id="@+id/radioButton_french_fries" />
 
 </LinearLayout>
