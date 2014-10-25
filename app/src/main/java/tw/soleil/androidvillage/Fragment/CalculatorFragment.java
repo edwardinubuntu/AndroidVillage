@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import tw.soleil.androidvillage.R;
 
@@ -41,6 +42,8 @@ public class CalculatorFragment extends PlaceholderFragment{public static Calcul
         Button button_8 = (Button) rootView.findViewById(R.id.button_eight);
 
         Button button_9 = (Button) rootView.findViewById(R.id.button_nine);
+
+        TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
 
         return  rootView;
     }
