@@ -1,29 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="fill_parent"
-    android:layout_height="70dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:weightSum="1">
 
-    <RadioButton
-        android:layout_width="0dp"
-        android:layout_height="79dp"
-        android:text="HAMBURGER"
-        android:id="@+id/radioButton_hamburger"
-        android:layout_weight="0.88" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.51"></LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="0.11"></LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2.22">
 
+<<<<<<< Updated upstream
     <RadioButton
         android:layout_width="169dp"
         android:layout_height="91dp"
         android:text="FRENCH FRIES"
         android:id="@+id/radioButton_french_fries" />
+=======
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:text="漢堡"
+            android:id="@+id/checkBox_hamburger"
+            android:layout_weight="1.11"
+            android:checked="false" />
+>>>>>>> Stashed changes
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:text="薯條"
+            android:id="@+id/checkBox_ff"
+            android:layout_weight="1.11"
+            android:checked="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2.22"
+        android:id="@+id/linearLayout">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:text="炸雞"
+            android:id="@+id/checkBox3"
+            android:layout_weight="1.11"
+            android:checked="false" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="94dp"
+            android:layout_weight="1.11"
+            android:text="紅茶"
+            android:id="@+id/checkBox4" />
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="65dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="你點的餐點"
+            android:id="@+id/textView_result food"
+            android:layout_weight="0.09"
+            android:layout_marginLeft="122dp"/>
+
+    </TableRow>
 </LinearLayout>
