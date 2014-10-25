@@ -49,7 +49,7 @@ public class NavigationDrawerFragment extends Fragment {
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    private int mCurrentSelectedPosition = 0;
+    private int mCurrentSelectedPosition = 3;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
@@ -100,7 +100,7 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_java_basic),
                         getString(R.string.title_android_basic),
                         getString(R.string.title_calculate_math),
-                        "calculator"
+                        "Calculator"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

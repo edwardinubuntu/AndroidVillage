@@ -1,18 +1,14 @@
 package tw.soleil.androidvillage.Fragment;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import android.widget.TextView;
-
-
 import tw.soleil.androidvillage.Object.MathCalculator;
-
 import tw.soleil.androidvillage.R;
 
 /**
@@ -79,108 +75,117 @@ public class CalculatorFragment extends PlaceholderFragment{
 
         Button button_equal = (Button) rootView.findViewById(R.id.button_equal);
 
+        Typeface warriorTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/StitchWarrior.ttf");
+        button_1.setTypeface(warriorTypeface);
+        button_2.setTypeface(warriorTypeface);
+        button_3.setTypeface(warriorTypeface);
+        button_4.setTypeface(warriorTypeface);
+        button_5.setTypeface(warriorTypeface);
+        button_6.setTypeface(warriorTypeface);
+        button_7.setTypeface(warriorTypeface);
+        button_8.setTypeface(warriorTypeface);
+        button_9.setTypeface(warriorTypeface);
+        button_0.setTypeface(warriorTypeface);
+        button_equal.setTypeface(warriorTypeface);
+
         final TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
 
-        button_plus.setOnTouchListener(new View.OnTouchListener() {
+        button_plus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-                mathCalculator.setOperation(MathCalculator.Operation.ADD);
-                return true;
+            public void onClick(View v) {
+                mathCalculator.setOperation(MathCalculator.Operation.PLUS);
+                Log.i("Calculator", mathCalculator.toString());
             }
         });
 
-        button_equal.setOnTouchListener(new View.OnTouchListener() {
+        button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
+            public void onClick(View v) {
                 mathCalculator.operate();
-
                 answer_textView.setText(String.valueOf(mathCalculator.getAnswer()));
+                Log.i("Calculator", mathCalculator.toString());
 
-                return true;
+                mathCalculator.clearAll();
             }
         });
 
-        button_1.setOnTouchListener(new View.OnTouchListener() {
+        button_1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(1);
                 answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
-                return true;
             }
         });
 
-        button_2.setOnTouchListener(new View.OnTouchListener() {
+        button_2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(2);
                 answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
-                return true;
             }
         });
 
-        button_3.setOnTouchListener(new View.OnTouchListener() {
+        button_3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(3);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_4.setOnTouchListener(new View.OnTouchListener() {
+        button_4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(4);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_5.setOnTouchListener(new View.OnTouchListener() {
+        button_5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(5);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_6.setOnTouchListener(new View.OnTouchListener() {
+        button_6.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(6);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_7.setOnTouchListener(new View.OnTouchListener() {
+        button_7.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(7);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_8.setOnTouchListener(new View.OnTouchListener() {
+        button_8.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(8);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_9.setOnTouchListener(new View.OnTouchListener() {
+        button_9.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(9);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
-        button_0.setOnTouchListener(new View.OnTouchListener() {
+        button_0.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public void onClick(View v) {
                 mathCalculator.setComingNumber(0);
-                return true;
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
             }
         });
 
@@ -198,7 +203,7 @@ public class CalculatorFragment extends PlaceholderFragment{
         mathCalculator.setComingNumber(1);
         mathCalculator.setComingNumber(2);
         mathCalculator.setComingNumber(3);
-        mathCalculator.setOperation(MathCalculator.Operation.ADD);
+        mathCalculator.setOperation(MathCalculator.Operation.PLUS);
         mathCalculator.setComingNumber(2);
         mathCalculator.operate();
 

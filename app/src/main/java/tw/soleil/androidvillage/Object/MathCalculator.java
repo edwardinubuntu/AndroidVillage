@@ -22,7 +22,7 @@ public class MathCalculator {
     private double comingNumber;
 
     public enum Operation {
-        ADD, Subtract, Multiple, Divide
+        PLUS, Subtract, Multiple, Divide
     }
 
     public double getOriginalNumber() {
@@ -35,8 +35,10 @@ public class MathCalculator {
 
     public void setOperation(Operation operation) {
         this.operation = operation;
-        this.moveAndSaveNumber();
-        this.clearComingNumber();
+        if (this.comingNumber != this.originalNumber) {
+            this.moveAndSaveNumber();
+            this.clearComingNumber();
+        }
     }
 
     public double getAnswer () {
@@ -60,14 +62,13 @@ public class MathCalculator {
     }
 
     public void clearAll() {
-        this.originalNumber = 0;
         this.comingNumber = 0;
         this.operation = null;
     }
 
     public void operate() {
         switch (this.operation) {
-            case ADD:
+            case PLUS:
                 this.originalNumber = this.originalNumber + this.comingNumber;
                 break;
             case Subtract:
@@ -82,5 +83,14 @@ public class MathCalculator {
 
             default:
         }
+    }
+
+    @Override
+    public String toString() {
+        return "MathCalculator{" +
+                "originalNumber=" + originalNumber +
+                ", operation=" + operation +
+                ", comingNumber=" + comingNumber +
+                '}';
     }
 }
