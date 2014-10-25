@@ -35,6 +35,12 @@ public class MathCalculator {
 
     public void setOperation(Operation operation) {
         this.operation = operation;
+        this.moveAndSaveNumber();
+        this.clearComingNumber();
+    }
+
+    public double getAnswer () {
+        return this.originalNumber;
     }
 
     public double getComingNumber() {
@@ -51,6 +57,12 @@ public class MathCalculator {
 
     public void clearComingNumber () {
         this.comingNumber = 0;
+    }
+
+    public void clearAll() {
+        this.originalNumber = 0;
+        this.comingNumber = 0;
+        this.operation = null;
     }
 
     public void operate() {
