@@ -3,6 +3,7 @@ package tw.soleil.androidvillage.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,7 +18,16 @@ import tw.soleil.androidvillage.R;
 /**
  * Created by bryan on 2014/10/18.
  */
-public class CalculatorFragment extends PlaceholderFragment{public static CalculatorFragment newInstance(int sectionNumber) {
+public class CalculatorFragment extends PlaceholderFragment{
+
+    private MathCalculator mathCalculator;
+
+
+
+    public static CalculatorFragment newInstance(int sectionNumber) {
+
+
+
     CalculatorFragment fragment = new CalculatorFragment();
     Bundle args = new Bundle();
     args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -25,10 +35,19 @@ public class CalculatorFragment extends PlaceholderFragment{public static Calcul
     return fragment;
      }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        this.mathCalculator = new MathCalculator();
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_calculator, container, false);
+
+        Button button_0 = (Button) rootView.findViewById(R.id.button_zero);
 
         Button button_1 = (Button) rootView.findViewById(R.id.button_one);
 
@@ -48,7 +67,122 @@ public class CalculatorFragment extends PlaceholderFragment{public static Calcul
 
         Button button_9 = (Button) rootView.findViewById(R.id.button_nine);
 
-        TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
+        Button button_plus = (Button) rootView.findViewById(R.id.button_plus);
+
+        Button button_minus = (Button) rootView.findViewById(R.id.button_minus);
+
+        Button button_divide = (Button) rootView.findViewById(R.id.button_divide);
+
+        Button button_time = (Button) rootView.findViewById(R.id.button_time);
+
+        Button button_period = (Button) rootView.findViewById(R.id.button_period);
+
+        Button button_equal = (Button) rootView.findViewById(R.id.button_equal);
+
+        final TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
+
+        button_plus.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                mathCalculator.setOperation(MathCalculator.Operation.ADD);
+                return true;
+            }
+        });
+
+        button_equal.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+
+                mathCalculator.operate();
+
+                answer_textView.setText(String.valueOf(mathCalculator.getAnswer()));
+
+                return true;
+            }
+        });
+
+        button_1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(1);
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                return true;
+            }
+        });
+
+        button_2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(2);
+                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                return true;
+            }
+        });
+
+        button_3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(3);
+                return true;
+            }
+        });
+
+        button_4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(4);
+                return true;
+            }
+        });
+
+        button_5.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(5);
+                return true;
+            }
+        });
+
+        button_6.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(6);
+                return true;
+            }
+        });
+
+        button_7.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(7);
+                return true;
+            }
+        });
+
+        button_8.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(8);
+                return true;
+            }
+        });
+
+        button_9.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(9);
+                return true;
+            }
+        });
+
+        button_0.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mathCalculator.setComingNumber(0);
+                return true;
+            }
+        });
 
         return  rootView;
     }
@@ -56,7 +190,7 @@ public class CalculatorFragment extends PlaceholderFragment{public static Calcul
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        runTest();
+        // runTest();
     }
 
     private void runTest() {
