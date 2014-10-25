@@ -1,11 +1,12 @@
 package tw.soleil.androidvillage.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
+import tw.soleil.androidvillage.Object.MathCalculator;
 import tw.soleil.androidvillage.R;
 
 /**
@@ -43,5 +44,33 @@ public class CalculatorFragment extends PlaceholderFragment{public static Calcul
         Button button_9 = (Button) rootView.findViewById(R.id.button_nine);
 
         return  rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        runTest();
+    }
+
+    private void runTest() {
+        MathCalculator mathCalculator = new MathCalculator();
+        mathCalculator.setComingNumber(1);
+        mathCalculator.setComingNumber(2);
+        mathCalculator.setComingNumber(3);
+        mathCalculator.setOperation(MathCalculator.Operation.ADD);
+        mathCalculator.setComingNumber(2);
+        mathCalculator.operate();
+
+        Log.i("Calculator", "Answer is: " + mathCalculator.getAnswer());
+
+        mathCalculator.clearAll();
+
+        mathCalculator.setComingNumber(2);
+        mathCalculator.setComingNumber(5);
+        mathCalculator.setOperation(MathCalculator.Operation.Multiple);
+        mathCalculator.setComingNumber(4);
+        mathCalculator.operate();
+
+        Log.i("Calculator", "Answer is: " + mathCalculator.getAnswer());
     }
 }
