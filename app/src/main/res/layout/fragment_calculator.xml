@@ -11,7 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.5"></LinearLayout>
+        android:layout_weight="0.5">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:gravity="right|bottom"
+            android:layout_margin="10dp"
+            android:text="0"
+            android:id="@+id/textView"
+            android:textSize="64dp"
+            android:textColor="@color/theme_color_2" />
+    </LinearLayout>
 
 	<LinearLayout
 		android:layout_weight="0.5"
@@ -32,7 +44,10 @@
             android:text="1"
             android:layout_weight="1"
             android:id="@+id/button_one"
-            android:layout_gravity="center_vertical" />
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/theme_color_2"
+            android:textSize="37dp"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="fill_parent"
@@ -40,7 +55,10 @@
             android:text="2"
             android:id="@+id/button_two"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="fill_parent"
@@ -48,13 +66,19 @@
             android:text="3"
             android:id="@+id/button_three"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:text="*"
-            android:id="@+id/button_time" />
+            android:id="@+id/button_time"
+            android:textSize="47dp"
+            android:textColor="@color/theme_color_5"
+            android:typeface="serif" />
 
     </LinearLayout>
 
@@ -71,27 +95,39 @@
             android:layout_height="match_parent"
             android:text="4"
             android:id="@+id/button_four"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:text="5"
             android:id="@+id/button_five"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:text="6"
             android:id="@+id/button_six"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:id="@+id/button_minus"
-            android:text="-" />
+            android:text="-"
+            android:textSize="47dp"
+            android:textColor="@color/theme_color_5"
+            android:typeface="serif" />
     </LinearLayout>
 
     <LinearLayout
@@ -106,7 +142,10 @@
             android:layout_height="match_parent"
             android:text="7"
             android:id="@+id/button_seven"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
 
         <Button
@@ -114,20 +153,29 @@
             android:layout_height="match_parent"
             android:text="8"
             android:id="@+id/button_eight"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:text="9"
             android:id="@+id/button_nine"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="37dp"
+            android:textColor="@color/theme_color_2"
+            android:typeface="serif" />
 
         <Button
             android:layout_width="120dp"
             android:layout_height="match_parent"
             android:text="/"
-            android:id="@+id/button_divide" />
+            android:id="@+id/button_divide"
+            android:textColor="@color/theme_color_5"
+            android:textSize="47dp"
+            android:typeface="serif" />
 
     </LinearLayout>
 
@@ -139,18 +187,67 @@
         android:weightSum="1"
         android:layout_weight="2">
 
-        <Button
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="128dp"
+                android:layout_height="84dp"
+                android:text="0"
+                android:id="@+id/button_zero"
+                android:textSize="37dp"
+                android:textColor="@color/theme_color_2"
+                android:typeface="serif" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="C"
+                android:id="@+id/button"
+                android:textSize="47dp"
+                android:textColor="@color/theme_color_5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:weightSum="2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <Button
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:text="+"
+                android:layout_weight="1"
+                android:id="@+id/button_plus"
+                android:textSize="46dp"
+                android:textColor="@color/theme_color_5"
+                android:typeface="serif" />
+            <Button
+                android:layout_weight="1"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:text="."
+                android:id="@+id/button_period"
+                android:textSize="46dp"
+                android:textColor="@color/theme_color_5"
+                android:typeface="serif" />
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="="
             android:id="@+id/button_equal"
-            android:layout_weight="1.04" />
+            android:textSize="@dimen/calculate_button_text_size"
+            android:textColor="@color/theme_color_5"
+            android:typeface="serif" />
 
-        <Button
-            android:layout_width="140dp"
-            android:layout_height="match_parent"
-            android:text="+"
-            android:id="@+id/button_plus" />
     </LinearLayout>
 
 	</LinearLayout>
