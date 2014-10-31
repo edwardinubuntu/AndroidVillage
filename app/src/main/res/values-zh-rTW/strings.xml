@@ -23,4 +23,11 @@
 	<string name="shape_string_convert_error">你輸入的不是合法數字</string>
     <string name="shape_calculate_rectangle_area_button">計算</string>
 
+	<string name="chapter_controlling_execution">Controlling Execution</string>
+	<string name="chapter_access_control">Access Control</string>
+	<string name="chapter_views">Views</string>
+	<string name="title_calculate_math">Shape</string>
+
+
+
 </resources>
