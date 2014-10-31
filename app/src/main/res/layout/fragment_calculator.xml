@@ -11,9 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:weightSum="6"
         android:layout_weight="0.5">
 
+	    <TextView
+		    android:layout_weight="5"
+		    android:gravity="center"
+		    android:text="N"
+		    android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:id="@+id/calculate_operation_textView"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"/>
+
         <TextView
+	        android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -208,7 +219,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="C"
-                android:id="@+id/button"
+                android:id="@+id/button_clear"
                 android:textSize="47dp"
                 android:textColor="@color/theme_color_5" />
         </LinearLayout>

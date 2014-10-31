@@ -18,18 +18,17 @@ public class CalculatorFragment extends PlaceholderFragment{
 
     private MathCalculator mathCalculator;
 
+    private StringBuffer calculatorText;
 
+    private TextView operationTextView;
 
     public static CalculatorFragment newInstance(int sectionNumber) {
-
-
-
-    CalculatorFragment fragment = new CalculatorFragment();
-    Bundle args = new Bundle();
-    args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-    fragment.setArguments(args);
-    return fragment;
-     }
+        CalculatorFragment fragment = new CalculatorFragment();
+        Bundle args = new Bundle();
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,6 +36,7 @@ public class CalculatorFragment extends PlaceholderFragment{
 
         this.mathCalculator = new MathCalculator();
 
+        calculatorText = new StringBuffer();
     }
 
     @Override
@@ -75,6 +75,10 @@ public class CalculatorFragment extends PlaceholderFragment{
 
         Button button_equal = (Button) rootView.findViewById(R.id.button_equal);
 
+        Button buttonClear = (Button)rootView.findViewById(R.id.button_clear);
+
+        operationTextView = (TextView)rootView.findViewById(R.id.calculate_operation_textView);
+
         Typeface warriorTypeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/StitchWarrior.ttf");
         button_1.setTypeface(warriorTypeface);
         button_2.setTypeface(warriorTypeface);
@@ -90,11 +94,34 @@ public class CalculatorFragment extends PlaceholderFragment{
 
         final TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
 
+        button_period.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (calculatorText.toString() == null || calculatorText.toString() == "") {
+                    calculatorText.append(0);
+                }
+                textButtonPressed(".", answer_textView);
+            }
+        });
+
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mathCalculator.clearAll();
+                calculatorText = new StringBuffer();
+                operationTextView.setText("");
+                // Because we want to make the label to 0, but don't want to add them to text buffer.
+                answer_textView.setText(String.valueOf((int)mathCalculator.getComingNumber()));
+            }
+        });
+
         button_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mathCalculator.setOperation(MathCalculator.Operation.PLUS);
                 Log.i("Calculator", mathCalculator.toString());
+                operationTextView.setText("+");
+                calculatorText = new StringBuffer();
             }
         });
 
@@ -102,9 +129,26 @@ public class CalculatorFragment extends PlaceholderFragment{
             @Override
             public void onClick(View v) {
                 mathCalculator.operate();
-                answer_textView.setText(String.valueOf(mathCalculator.getAnswer()));
-                Log.i("Calculator", mathCalculator.toString());
 
+                String result;
+                if (mathCalculator.getAnswer() == Math.floor(mathCalculator.getAnswer()) && !Double.isInfinite(mathCalculator.getAnswer())) {
+                    // Int
+                    result = String.valueOf((int)mathCalculator.getAnswer());
+                } else {
+                    double answer = mathCalculator.getAnswer();
+
+                    // Checkout http://stackoverflow.com/questions/703396/how-to-nicely-format-floating-numbers-to-string-without-unnecessary-decimal-0
+                    if (answer == (int)answer) {
+                        result = String.format("%d", (long)answer);
+                    } else {
+                        result = String.format("%.3s", answer);
+                    }
+                }
+
+                answer_textView.setText(result);
+                Log.i("Calculator", mathCalculator.toString());
+                operationTextView.setText("=");
+                calculatorText = new StringBuffer();
                 mathCalculator.clearAll();
             }
         });
@@ -112,72 +156,63 @@ public class CalculatorFragment extends PlaceholderFragment{
         button_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(1);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(1, answer_textView);
             }
         });
 
         button_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(2);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(2, answer_textView);
             }
         });
 
         button_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(3);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(3, answer_textView);
             }
         });
 
         button_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(4);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(4, answer_textView);
             }
         });
 
         button_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(5);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(5, answer_textView);
             }
         });
 
         button_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(6);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(6, answer_textView);
             }
         });
 
         button_7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(7);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(7, answer_textView);
             }
         });
 
         button_8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(8);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(8, answer_textView);
             }
         });
 
         button_9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mathCalculator.setComingNumber(9);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                numberButtonPressed(9, answer_textView);
             }
         });
 
@@ -185,11 +220,32 @@ public class CalculatorFragment extends PlaceholderFragment{
             @Override
             public void onClick(View v) {
                 mathCalculator.setComingNumber(0);
-                answer_textView.setText(String.valueOf(mathCalculator.getComingNumber()));
+                try {
+                    if (calculatorText.length() > 0 && Float.parseFloat(calculatorText.toString()) > 0) {
+                        numberButtonPressed(0, answer_textView);
+                    } else {
+                        answer_textView.setText(String.valueOf(0));
+                    }
+                } catch (NumberFormatException e) {
+                    numberButtonPressed(0, answer_textView);
+                }
             }
         });
 
         return  rootView;
+    }
+
+    private void textButtonPressed(String text, TextView answer_textView) {
+        if (calculatorText.length() > 0 && !calculatorText.toString().contains(text)) {
+            calculatorText.append(text);
+            answer_textView.setText(calculatorText);
+        }
+    }
+
+    private void numberButtonPressed(int number, TextView answer_textView) {
+        calculatorText.append(number);
+        mathCalculator.setComingNumber(Float.parseFloat(calculatorText.toString()));
+        answer_textView.setText(calculatorText);
     }
 
     @Override

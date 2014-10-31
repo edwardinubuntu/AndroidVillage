@@ -10,6 +10,8 @@
 
 package tw.soleil.androidvillage.Object;
 
+import android.util.Log;
+
 /**
  * Created by edward_chiang on 14/10/25.
  */
@@ -35,10 +37,8 @@ public class MathCalculator {
 
     public void setOperation(Operation operation) {
         this.operation = operation;
-        if (this.comingNumber != this.originalNumber) {
-            this.moveAndSaveNumber();
-            this.clearComingNumber();
-        }
+        this.operate();
+        this.clearComingNumber();
     }
 
     public double getAnswer () {
@@ -49,8 +49,13 @@ public class MathCalculator {
         return comingNumber;
     }
 
-    public void setComingNumber(double comingNumber) {
-        this.comingNumber = this.comingNumber * 10 + comingNumber;
+    public void setComingNumber(float comingNumber) {
+        // If the operation is null, then we know user want to start over.
+        if (this.operation == null) {
+            this.originalNumber = 0;
+            this.comingNumber = 0;
+        }
+        this.comingNumber = comingNumber;
     }
 
     public void moveAndSaveNumber() {
@@ -67,9 +72,11 @@ public class MathCalculator {
     }
 
     public void operate() {
+        if (this.operation == null) return;
         switch (this.operation) {
             case PLUS:
                 this.originalNumber = this.originalNumber + this.comingNumber;
+                Log.i("Calculator: ", "Plus: " + this.originalNumber);
                 break;
             case Subtract:
                 this.originalNumber = this.originalNumber - this.comingNumber;
