@@ -92,6 +92,9 @@ public class CalculatorFragment extends PlaceholderFragment{
         button_0.setTypeface(warriorTypeface);
         button_equal.setTypeface(warriorTypeface);
 
+        Typeface spaceTypeface = Typeface.createFromAsset(getActivity().getAssets(),"fonts/SPACECRAFT.ttf");
+        buttonClear.setTypeface(spaceTypeface);
+
         final TextView answer_textView = (TextView) rootView.findViewById(R.id.calculate_answer_textView);
 
         button_period.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +127,38 @@ public class CalculatorFragment extends PlaceholderFragment{
                 calculatorText = new StringBuffer();
             }
         });
+
+        button_minus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mathCalculator.setOperation(MathCalculator.Operation.MINUS);
+                Log.i("Calculator", mathCalculator.toString());
+                operationTextView.setText("-");
+                calculatorText = new StringBuffer();
+            }
+        });
+
+        button_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mathCalculator.setOperation(MathCalculator.Operation.TIME);
+                Log.i("Calculator", mathCalculator.toString());
+                operationTextView.setText("*");
+                calculatorText = new StringBuffer();
+            }
+        });
+
+
+        button_divide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mathCalculator.setOperation(MathCalculator.Operation.DIVIDE);
+                Log.i("Calculator", mathCalculator.toString());
+                operationTextView.setText("/");
+                calculatorText = new StringBuffer();
+            }
+        });
+
 
         button_equal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,7 +304,7 @@ public class CalculatorFragment extends PlaceholderFragment{
 
         mathCalculator.setComingNumber(2);
         mathCalculator.setComingNumber(5);
-        mathCalculator.setOperation(MathCalculator.Operation.Multiple);
+        mathCalculator.setOperation(MathCalculator.Operation.TIME);
         mathCalculator.setComingNumber(4);
         mathCalculator.operate();
 

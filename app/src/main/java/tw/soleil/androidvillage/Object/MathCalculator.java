@@ -24,7 +24,7 @@ public class MathCalculator {
     private double comingNumber;
 
     public enum Operation {
-        PLUS, Subtract, Multiple, Divide
+        PLUS, MINUS, TIME, DIVIDE
     }
 
     public double getOriginalNumber() {
@@ -37,7 +37,8 @@ public class MathCalculator {
 
     public void setOperation(Operation operation) {
         this.operation = operation;
-        this.operate();
+//        this.operate();
+        this.moveAndSaveNumber();
         this.clearComingNumber();
     }
 
@@ -78,13 +79,13 @@ public class MathCalculator {
                 this.originalNumber = this.originalNumber + this.comingNumber;
                 Log.i("Calculator: ", "Plus: " + this.originalNumber);
                 break;
-            case Subtract:
+            case MINUS:
                 this.originalNumber = this.originalNumber - this.comingNumber;
                 break;
-            case Multiple:
+            case TIME:
                 this.originalNumber = this.originalNumber * this.comingNumber;
                 break;
-            case Divide:
+            case DIVIDE:
                 this.originalNumber = this.originalNumber / this.comingNumber;
                 break;
 
