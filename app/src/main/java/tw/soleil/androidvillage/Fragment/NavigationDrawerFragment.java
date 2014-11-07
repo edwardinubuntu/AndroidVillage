@@ -100,7 +100,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_java_basic),
                         getString(R.string.title_android_basic),
                         getString(R.string.title_calculate_math),
-                        "Calculator"
+                        getString(R.string.title_calculator),
+                        getString(R.string.title_camera)
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

@@ -22,6 +22,8 @@
 
 	<string name="title_calculate_math">Shape</string>
 	
+	<string name="title_calculator">Calculator</string>
+	
 	<string name="circle_title">Circle</string>
 	<string name="Radius">Radius</string>
 	
@@ -31,5 +33,9 @@
 	
 	<string name="shape_string_convert_error">You input a invalid number.</string>
     <string name="shape_calculate_rectangle_area_button">calculate</string>
+
+	<string name="title_camera">Camera</string>
+
+	<string name="action_camera">Camera</string>
 
 </resources>

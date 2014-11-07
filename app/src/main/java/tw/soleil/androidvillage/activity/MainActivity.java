@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import tw.soleil.androidvillage.Fragment.*;
 import tw.soleil.androidvillage.R;
 
-
 public class MainActivity extends Activity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -60,6 +59,9 @@ public class MainActivity extends Activity
             case 3:
                 fragment = CalculatorFragment.newInstance(position + 1);
                 break;
+            case 4:
+                fragment = CameraExampleFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -81,7 +83,10 @@ public class MainActivity extends Activity
                 mTitle = getString(R.string.title_calculate_math);
                 break;
             case 4:
-                mTitle = "calculator";
+                mTitle = getString(R.string.title_calculator);
+                break;
+            case 5:
+                mTitle = getString(R.string.title_camera);
                 break;
         }
     }
