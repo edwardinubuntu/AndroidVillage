@@ -93,7 +93,7 @@ public class MathWithShapeFragment extends PlaceholderFragment {
         });
 
 
-        // TODO Calculate square calculatePerimeter &  circle calculateCircumference
+
         return rootView;
     }
 

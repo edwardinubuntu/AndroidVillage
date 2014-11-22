@@ -21,14 +21,16 @@
 
     <RadioButton
         android:layout_width="169dp"
-        android:layout_height="91dp"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="FRENCH FRIES"
         android:id="@+id/radioButton_french_fries" />
 
         <CheckBox
             android:layout_width="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_height="94dp"
-            android:text="漢堡"
+            android:text="HAMBURGER"
             android:id="@+id/checkBox_hamburger"
             android:layout_weight="1.11"
             android:checked="false" />
@@ -36,8 +38,9 @@
 
         <CheckBox
             android:layout_width="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_height="94dp"
-            android:text="薯條"
+            android:text="MILK TEA"
             android:id="@+id/checkBox_ff"
             android:layout_weight="1.11"
             android:checked="false" />
@@ -53,17 +56,20 @@
         <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="94dp"
-            android:text="炸雞"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="FRIED CHICKEN"
             android:id="@+id/checkBox3"
-            android:layout_weight="1.11"
-            android:checked="false" />
+            android:layout_weight="0.87"
+            android:checked="false"/>
 
         <CheckBox
             android:layout_width="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_height="94dp"
-            android:layout_weight="1.11"
-            android:text="紅茶"
-            android:id="@+id/checkBox4" />
+            android:layout_weight="1.37"
+            android:text="RED TEA"
+            android:id="@+id/checkBox4"
+            android:checked="false" />
     </LinearLayout>
 
     <TableRow
@@ -81,4 +87,13 @@
             android:layout_marginLeft="122dp"/>
 
     </TableRow>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="..."
+        android:id="@+id/textView"
+        android:layout_weight="0.51"
+        android:textSize="56dp"/>
 </LinearLayout>
