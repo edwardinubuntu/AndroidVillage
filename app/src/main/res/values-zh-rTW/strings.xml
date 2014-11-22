@@ -33,5 +33,7 @@
 	<string name="title_camera">相機</string>
 
 	<string name="action_camera">相機</string>
+    <string name="food_name">名稱</string>
+    <string name="food_price">價錢</string>
 
 </resources>

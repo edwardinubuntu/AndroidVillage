@@ -11,15 +11,34 @@
 package tw.soleil.androidvillage.Fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import tw.soleil.androidvillage.R;
+import tw.soleil.androidvillage.adapter.FoodAdapter;
 
 /**
  * Created by edward_chiang on 14/11/22.
  */
 public class KorrnellFairFragment extends PlaceholderFragment {
+
+    private ListView foodListView;
+
+    private FoodAdapter foodArrayAdapter;
+
+    private ArrayList<ParseObject> foodList;
 
     public static KorrnellFairFragment newInstance(int sectionNumber) {
         KorrnellFairFragment fragment = new KorrnellFairFragment();
@@ -30,9 +49,41 @@ public class KorrnellFairFragment extends PlaceholderFragment {
     }
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        foodList= new ArrayList<ParseObject>();
+        foodArrayAdapter = new FoodAdapter(getActivity(), R.layout.cell_food, foodList);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_korrnell_fair, container, false);
-
+        foodListView = (ListView)rootView.findViewById(R.id.Food_listView);
+        foodListView.setAdapter(foodArrayAdapter);
         return rootView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        ParseQuery<ParseObject> foodQuery = ParseQuery.getQuery("Food");
+        foodQuery.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> parseObjects, ParseException e) {
+                if (e == null) {
+                    Log.d("KorrnellFair","Retrieve: "+ parseObjects);
+                    foodList.clear();
+                    for (ParseObject eachParseObject : parseObjects) {
+                        Log.d("KorrnellFair","EachObject: "+ eachParseObject.getString("name"));
+                        foodList.add(eachParseObject);
+                    }
+                    foodArrayAdapter.notifyDataSetChanged();
+                }else {
+                    Log.d("KorrnellFair", "error: "+e.getMessage());
+                }
+            }
+        });
+
     }
 }
