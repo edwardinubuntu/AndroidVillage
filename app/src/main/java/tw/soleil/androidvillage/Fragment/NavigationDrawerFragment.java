@@ -49,7 +49,7 @@ public class NavigationDrawerFragment extends Fragment {
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    private int mCurrentSelectedPosition = 3;
+    private int mCurrentSelectedPosition = 5;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
@@ -101,7 +101,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_android_basic),
                         getString(R.string.title_calculate_math),
                         getString(R.string.title_calculator),
-                        getString(R.string.title_camera)
+                        getString(R.string.title_camera),
+                        "Korrnel Fair"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

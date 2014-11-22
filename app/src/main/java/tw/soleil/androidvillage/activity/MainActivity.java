@@ -62,6 +62,9 @@ public class MainActivity extends Activity
             case 4:
                 fragment = CameraExampleFragment.newInstance(position + 1);
                 break;
+            case 5:
+                fragment = KorrnellFairFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -87,6 +90,9 @@ public class MainActivity extends Activity
                 break;
             case 5:
                 mTitle = getString(R.string.title_camera);
+                break;
+            case 6:
+                mTitle = "Korrnell Fair";
                 break;
         }
     }
