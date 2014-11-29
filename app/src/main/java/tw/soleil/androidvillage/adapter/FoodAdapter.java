@@ -1,6 +1,7 @@
 package tw.soleil.androidvillage.adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,9 @@ public class FoodAdapter extends ArrayAdapter <ParseObject> {
 
         TextView foodNameTextView = (TextView)convertView.findViewById(R.id.food_name_textView);
         foodNameTextView.setText(eachFoodObject.getString("name"));
+
+        Typeface spaceTypeface = Typeface.createFromAsset(getContext().getAssets(),"fonts/SPACECRAFT.ttf");
+        foodNameTextView.setTypeface(spaceTypeface);
 
         TextView foodPriceTextView = (TextView)convertView.findViewById(R.id.food_price_textView);
         foodPriceTextView.setText(eachFoodObject.getNumber("price").toString());
