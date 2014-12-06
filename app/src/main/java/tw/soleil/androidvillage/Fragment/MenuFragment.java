@@ -20,7 +20,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -41,6 +43,8 @@ public class MenuFragment extends Fragment {
     private FoodAdapter foodArrayAdapter;
 
     private ListView foodListView;
+
+    private String studentID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,10 @@ public class MenuFragment extends Fragment {
                 }
             }
         });
+
+        if (studentID == null) {
+            askUserAccount();
+        }
     }
 
     @Override
@@ -106,6 +114,48 @@ public class MenuFragment extends Fragment {
             }
         });
 
+        View userNameLayout = rootView.findViewById(R.id.user_name_layout);
+        userNameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                askUserAccount();
+            }
+        });
+
         return rootView;
+    }
+
+    private void askUserAccount() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+
+        alert.setTitle("Chose logging account");
+        alert.setMessage("Input your student ID");
+
+
+        final EditText input = new EditText(getActivity());
+        alert.setView(input);
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                studentID = String.valueOf(input.getText());
+                TextView studentIdTextView = (TextView)getActivity().findViewById(R.id.korrnell_fair_student_ID_text_view);
+                studentIdTextView.setText(studentID);
+
+            }
+        }).setNeutralButton("Use Guest", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+        alert.show();
     }
 }
