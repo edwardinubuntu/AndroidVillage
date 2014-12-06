@@ -11,7 +11,6 @@
 package tw.soleil.androidvillage.Fragment;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,21 +18,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import tw.soleil.androidvillage.R;
+import tw.soleil.androidvillage.adapter.FoodAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import tw.soleil.androidvillage.R;
-import tw.soleil.androidvillage.adapter.FoodAdapter;
 
 /**
  * Created by edward_chiang on 14/11/22.

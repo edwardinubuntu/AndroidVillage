@@ -14,8 +14,34 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+	<LinearLayout
+		android:id="@+id/user_name_layout"
+		android:layout_margin="5dp"
+		android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Your name:"/>
 
+		<TextView
+			android:layout_marginLeft="5dp"
+			android:hint="Guest"
+			android:id="@+id/korrnell_fair_student_ID_text_view"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
 
+	</LinearLayout>
 
+	<TextView
+		android:text="Order"
+		android:textAppearance="?android:textAppearanceMedium"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+	<ListView
+		android:id="@+id/shopping_cart_list_view"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"/>
 
 </LinearLayout>

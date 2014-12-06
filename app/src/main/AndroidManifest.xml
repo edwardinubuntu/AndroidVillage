@@ -53,6 +53,10 @@
 	    <activity android:name=".activity.SettingsActivity"
 	              android:label="@string/action_settings" />
 
+
+	    <activity android:name=".activity.KorrnellFairActivity"
+                  android:label="Fair" />
+
     </application>
 
 </manifest>

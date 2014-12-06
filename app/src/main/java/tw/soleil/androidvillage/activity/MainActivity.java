@@ -43,6 +43,14 @@ public class MainActivity extends Activity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
+
+        if (position == 5) {
+            // Open Activity
+            Intent fairActivityIntent = new Intent(MainActivity.this, KorrnellFairActivity.class);
+            startActivity(fairActivityIntent);
+            return;
+        }
+
         FragmentManager fragmentManager = getFragmentManager();
 
         Fragment fragment;
@@ -62,9 +70,9 @@ public class MainActivity extends Activity
             case 4:
                 fragment = CameraExampleFragment.newInstance(position + 1);
                 break;
-            case 5:
-                fragment = KorrnellFairFragment.newInstance(position + 1);
-                break;
+//            case 5:
+//                fragment = KorrnellFairFragment.newInstance(position + 1);
+//                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
