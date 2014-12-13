@@ -45,7 +45,7 @@ public class ShoppingAdapter extends ArrayAdapter<ParseObject> {
         ParseObject eachFoodObject = getItem(position);
 
         TextView shopItemNameTextView = (TextView) convertView.findViewById(R.id.shop_item_name_text_view);
-        shopItemNameTextView.setText(eachFoodObject.getString("name"));
+        shopItemNameTextView.setText(eachFoodObject.getParseObject("foodPointer").getString("name"));
 
         return convertView;
     }

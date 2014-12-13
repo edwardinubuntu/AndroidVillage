@@ -23,10 +23,14 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
+
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.adapter.FoodAdapter;
 
@@ -61,6 +65,7 @@ public class MenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ParseQuery<ParseObject> foodQuery = ParseQuery.getQuery("Food");
+
         foodQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
@@ -101,6 +106,21 @@ public class MenuFragment extends Fragment {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
+                                ParseObject shopCart = new ParseObject("Cart");
+                                shopCart.put("foodPointer", currentObject);
+                                shopCart.put("queuingNumber", 1);
+                                shopCart.put("status", 0);
+                                shopCart.put("userName", studentID);
+                                shopCart.saveInBackground(new SaveCallback() {
+                                    @Override
+                                    public void done(ParseException e) {
+                                        if (e == null) {
+                                            Toast.makeText(getActivity(), "Order SUCCESS", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(getActivity(), "CHECK YOUR INTERNET CONNECTION", Toast.LENGTH_LONG).show();
+                                        }
+                                    }
+                                });
                             }
                         })
                         .setNegativeButton("I QUIT!", new DialogInterface.OnClickListener() {

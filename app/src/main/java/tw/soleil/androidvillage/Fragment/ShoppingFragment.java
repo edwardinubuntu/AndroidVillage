@@ -15,17 +15,24 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import tw.soleil.androidvillage.R;
 import tw.soleil.androidvillage.adapter.ShoppingAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by edward_chiang on 14/12/6.
@@ -52,6 +59,35 @@ public class ShoppingFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+
+        // Check student id not null
+
+        // Query Cart
+
+
+        // User where from student id, foodQuery.whereEqualTo
+
+        // Use Android Log print cart
+    }
+
+    private void queryCart() {
+        if (studentID != null) {
+            ParseQuery<ParseObject> cartQuery = ParseQuery.getQuery("Cart");
+            cartQuery.whereEqualTo("userName", studentID);
+            cartQuery.include("foodPointer");
+            cartQuery.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> parseObjects, ParseException e) {
+                    Log.d("Cart", parseObjects.toString());
+
+                    shopFoodList.clear();
+                    shopFoodList.addAll(parseObjects);
+                    shopFoodAdapter.notifyDataSetChanged();
+                }
+            });
+        }
     }
 
     @Override
@@ -90,6 +126,8 @@ public class ShoppingFragment extends Fragment {
                 studentID = String.valueOf(input.getText());
                 TextView studentIdTextView = (TextView)getActivity().findViewById(R.id.korrnell_fair_student_ID_text_view);
                 studentIdTextView.setText(studentID);
+
+                queryCart();
 
             }
         }).setNeutralButton("Use Guest", new DialogInterface.OnClickListener() {
