@@ -15,12 +15,20 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import tw.soleil.androidvillage.R;
 
 /**
  * Created by edward_chiang on 15/1/3.
  */
-public class MyGoogleMapFragment extends PlaceholderFragment {
+public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapReadyCallback {
 
     public static MyGoogleMapFragment newInstance(int sectionNumber) {
         MyGoogleMapFragment fragment = new MyGoogleMapFragment();
@@ -34,6 +42,22 @@ public class MyGoogleMapFragment extends PlaceholderFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_my_google_map, container, false);
 
+        MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentById(R.id.my_google_map);
+        mapFragment.getMapAsync(this);
+
         return rootView;
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        LatLng taipei101 = new LatLng(25.21, 121.3354);
+
+        googleMap.setMyLocationEnabled(true);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(taipei101, 13));
+
+        googleMap.addMarker(new MarkerOptions()
+                .title("taipei101")
+                .snippet("the highest building in Taiwan")
+                .position(taipei101));
     }
 }

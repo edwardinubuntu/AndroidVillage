@@ -9,7 +9,6 @@ buildscript {
 
 repositories {
     mavenCentral()
-    maven { url 'http://download.crashlytics.com/maven' }
 }
 
 
