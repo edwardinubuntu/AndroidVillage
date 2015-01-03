@@ -73,6 +73,9 @@ public class MainActivity extends Activity
 //            case 5:
 //                fragment = KorrnellFairFragment.newInstance(position + 1);
 //                break;
+            case 6:
+                fragment = MyGoogleMapFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -101,6 +104,9 @@ public class MainActivity extends Activity
                 break;
             case 6:
                 mTitle = "Korrnell Fair";
+                break;
+            case 7:
+                mTitle = "My Google Map";
                 break;
         }
     }
