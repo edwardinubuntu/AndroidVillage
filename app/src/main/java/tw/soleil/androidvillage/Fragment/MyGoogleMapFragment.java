@@ -92,7 +92,9 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
 
 
 
+
         LatLng slash = new LatLng(25.0365967,121.5178979);
+
 
         myHomeMarker = new MarkerOptions()
                 .title("中正紀念堂")
