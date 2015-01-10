@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -33,6 +35,15 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
     private MarkerOptions myHomeMarker;
 
     private WebView webView;
+
+    private BootstrapButton mapButton;
+
+    private BootstrapButton hybridButton;
+
+    private BootstrapButton terrainButton;
+
+    private BootstrapButton satelliteButton;
+
 
     public static MyGoogleMapFragment newInstance(int sectionNumber) {
         MyGoogleMapFragment fragment = new MyGoogleMapFragment();
@@ -52,11 +63,26 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
         webView = (WebView)rootView.findViewById(R.id.my_google_map_web_view);
         webView.setVisibility(View.INVISIBLE);
 
+        mapButton = (BootstrapButton)rootView.findViewById(R.id.map_button);
+        hybridButton = (BootstrapButton)rootView.findViewById(R.id.hybrid_button);
+        terrainButton = (BootstrapButton)rootView.findViewById(R.id.terrain_button);
+        satelliteButton = (BootstrapButton)rootView.findViewById(R.id.satellite_button);
+
+
         return rootView;
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onDestroyView() {
+        super.onDestroyView();
+        MapFragment f = (MapFragment) getFragmentManager()
+                .findFragmentById(R.id.my_google_map_view);
+        if (f != null)
+            getFragmentManager().beginTransaction().remove(f).commit();
+    }
+
+    @Override
+    public void onMapReady(final GoogleMap googleMap) {
         LatLng taipei101 = new LatLng(25.0336, 121.5650);
 
         googleMap.setMyLocationEnabled(true);
@@ -74,9 +100,6 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
                 .position(homeSweetHome);
 
         googleMap.addMarker(myHomeMarker );
-
-
-
 
 
 
@@ -137,5 +160,33 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
 
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(taipei101, 13));
 
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            }
+        });
+
+        hybridButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            }
+        });
+
+        terrainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+            }
+        });
+
+
+        satelliteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            }
+        });
     }
 }
