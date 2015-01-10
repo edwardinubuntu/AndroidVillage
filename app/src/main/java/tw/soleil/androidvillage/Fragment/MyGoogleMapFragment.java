@@ -86,6 +86,8 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
         LatLng taipei101 = new LatLng(25.0336, 121.5650);
 
         googleMap.setMyLocationEnabled(true);
+        googleMap.setBuildingsEnabled(true);
+//        googleMap.setTrafficEnabled(true);
 
         googleMap.addMarker(new MarkerOptions()
                 .title("taipei101")
@@ -186,6 +188,7 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
             @Override
             public void onClick(View view) {
                 googleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+
             }
         });
     }

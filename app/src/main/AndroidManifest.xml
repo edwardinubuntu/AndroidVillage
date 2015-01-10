@@ -69,7 +69,7 @@
 
 	    <meta-data
 		    android:name="com.google.android.maps.v2.API_KEY"
-		    android:value="AIzaSyCr2JRwcx2RIFaXHdz8LwNpPYyuRQbTJkg"/>
+		    android:value="AIzaSyCGCNyYGweXhxIo6Ms4Fsajb5PNAZjZehI"/>
 
 	    <uses-feature
 		    android:glEsVersion="0x00020000"
