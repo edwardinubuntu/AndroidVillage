@@ -16,6 +16,9 @@ import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
 import com.google.android.gms.maps.StreetViewPanorama;
 import com.google.android.gms.maps.StreetViewPanoramaFragment;
@@ -28,6 +31,14 @@ import tw.soleil.androidvillage.R;
 public class MyStreetViewFragment extends PlaceholderFragment implements OnStreetViewPanoramaReadyCallback {
 
     private static View rootView;
+
+    private BootstrapButton home1Button;
+
+    private BootstrapButton home2Button;
+
+    private BootstrapButton taipei101Button;
+
+    private BootstrapButton aircraftButton;
 
     public static MyStreetViewFragment newInstance(int sectionNumber) {
         MyStreetViewFragment fragment = new MyStreetViewFragment();
@@ -56,11 +67,25 @@ public class MyStreetViewFragment extends PlaceholderFragment implements OnStree
         StreetViewPanoramaFragment streetViewPanoramaFragment = (StreetViewPanoramaFragment)getFragmentManager().findFragmentById(R.id.street_view_panorama_fragment);
         streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);
 
+
+        home1Button = (BootstrapButton)rootView.findViewById(R.id.home1_button);
+        home2Button = (BootstrapButton)rootView.findViewById(R.id.home2_button);
+        taipei101Button = (BootstrapButton)rootView.findViewById(R.id.taipei101_button);
+        aircraftButton = (BootstrapButton)rootView.findViewById(R.id.aircraft_button);
         return rootView;
     }
+
+
 
     @Override
     public void onStreetViewPanoramaReady(StreetViewPanorama streetViewPanorama) {
         streetViewPanorama.setPosition(new LatLng(25.0336, 121.5650));
+
+
+
+
+
+
+
     }
 }

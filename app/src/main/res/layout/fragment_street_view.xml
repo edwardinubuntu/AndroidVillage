@@ -9,15 +9,83 @@
   ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:bootstrapbutton="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
 
 	<fragment
 		android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
 		android:id="@+id/street_view_panorama_fragment"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+		android:layout_width="602dp"
+		android:layout_height="750dp" />
 
-</LinearLayout>
+
+    <LinearLayout
+        android:background="#40000000"
+        android:orientation="horizontal"
+        android:layout_width="557dp"
+        android:layout_height="84dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:id="@+id/page_skipper"
+        android:weightSum="8">
+
+
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            bootstrapbutton:bb_roundedCorners="false"
+            bootstrapbutton:text="home1"
+            android:id="@+id/home1_button"
+            android:layout_margin="5dp"
+            bootstrapbutton:bb_text_gravity="center"
+            bootstrapbutton:bb_type="info"
+            android:width="100dp"
+            android:layout_weight="2" />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            bootstrapbutton:bb_roundedCorners="false"
+            android:text="home2"
+            android:id="@+id/home2_button"
+            android:layout_margin="5dp"
+            bootstrapbutton:bb_text_gravity="center"
+            bootstrapbutton:bb_type="info"
+            android:width="100dp"
+            android:layout_weight="2" />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            bootstrapbutton:bb_roundedCorners="false"
+            android:text="taipei101"
+            android:id="@+id/taipei101_button"
+            android:layout_margin="5dp"
+            bootstrapbutton:bb_text_gravity="center"
+            bootstrapbutton:bb_type="info"
+            android:width="100dp"
+            android:layout_weight="2" />
+        <com.beardedhen.androidbootstrap.BootstrapButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            bootstrapbutton:bb_roundedCorners="false"
+            android:text="aircraft"
+            android:id="@+id/aircraft_button"
+            android:layout_margin="5dp"
+            bootstrapbutton:bb_text_gravity="center"
+            bootstrapbutton:bb_type="info"
+            android:width="100dp"
+            android:layout_weight="2" />
+
+    </LinearLayout>
+
+</RelativeLayout>
