@@ -10,15 +10,12 @@
 
 package tw.soleil.androidvillage.Fragment;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -26,7 +23,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import tw.soleil.androidvillage.R;
 
 /**
@@ -96,7 +92,7 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
 
 
 
-        LatLng slash = new LatLng(25.034731,121.521934);
+        LatLng slash = new LatLng(25.0365967,121.5178979);
 
         myHomeMarker = new MarkerOptions()
                 .title("中正紀念堂")
