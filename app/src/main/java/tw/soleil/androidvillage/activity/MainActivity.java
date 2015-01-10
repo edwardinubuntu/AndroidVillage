@@ -76,6 +76,9 @@ public class MainActivity extends Activity
             case 6:
                 fragment = MyGoogleMapFragment.newInstance(position + 1);
                 break;
+            case 7:
+                fragment = MyStreetViewFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -107,6 +110,9 @@ public class MainActivity extends Activity
                 break;
             case 7:
                 mTitle = "My Google Map";
+                break;
+            case 8:
+                mTitle = "My Street View";
                 break;
         }
     }

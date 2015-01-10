@@ -103,7 +103,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_calculator),
                         getString(R.string.title_camera),
                         "Korrnel Fair",
-                        "My Google Map"
+                        "My Google Map",
+                        "My Street View"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
