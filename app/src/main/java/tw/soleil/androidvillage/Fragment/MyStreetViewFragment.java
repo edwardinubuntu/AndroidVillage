@@ -12,6 +12,7 @@ package tw.soleil.androidvillage.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,8 @@ import tw.soleil.androidvillage.R;
  */
 public class MyStreetViewFragment extends PlaceholderFragment implements OnStreetViewPanoramaReadyCallback {
 
+    private static View rootView;
+
     public static MyStreetViewFragment newInstance(int sectionNumber) {
         MyStreetViewFragment fragment = new MyStreetViewFragment();
         Bundle args = new Bundle();
@@ -36,7 +39,19 @@ public class MyStreetViewFragment extends PlaceholderFragment implements OnStree
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_street_view, container, false);
+
+
+        if (rootView!=null) {
+            ViewGroup containerParent = (ViewGroup)container.getParent();
+            if (containerParent !=null) {
+                containerParent.removeView(rootView);
+            }
+        }
+        try {
+            rootView = inflater.inflate(R.layout.fragment_street_view, container, false);
+        } catch (InflateException ex ){
+
+        }
 
         StreetViewPanoramaFragment streetViewPanoramaFragment = (StreetViewPanoramaFragment)getFragmentManager().findFragmentById(R.id.street_view_panorama_fragment);
         streetViewPanoramaFragment.getStreetViewPanoramaAsync(this);

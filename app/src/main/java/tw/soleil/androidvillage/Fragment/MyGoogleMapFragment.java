@@ -12,6 +12,7 @@ package tw.soleil.androidvillage.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ import tw.soleil.androidvillage.R;
  * Created by edward_chiang on 15/1/3.
  */
 public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapReadyCallback {
+
+    private static View rootView;
 
     private MarkerOptions myHomeMarker;
 
@@ -55,7 +58,18 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_my_google_map, container, false);
+
+        if (rootView!=null) {
+            ViewGroup containerParent = (ViewGroup)container.getParent();
+            if (containerParent !=null) {
+                containerParent.removeView(rootView);
+            }
+        }
+        try {
+            rootView = inflater.inflate(R.layout.fragment_my_google_map, container, false);
+        } catch (InflateException ex ){
+
+        }
 
         MapFragment mapFragment = (MapFragment)getFragmentManager().findFragmentById(R.id.my_google_map_view);
         mapFragment.getMapAsync(this);
@@ -70,15 +84,6 @@ public class MyGoogleMapFragment extends PlaceholderFragment implements OnMapRea
 
 
         return rootView;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        MapFragment f = (MapFragment) getFragmentManager()
-                .findFragmentById(R.id.my_google_map_view);
-        if (f != null)
-            getFragmentManager().beginTransaction().remove(f).commit();
     }
 
     @Override
