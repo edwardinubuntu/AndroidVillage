@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             bootstrapbutton:bb_roundedCorners="false"
-            bootstrapbutton:text="home1"
+            android:text="home1"
             android:id="@+id/home1_button"
             android:layout_margin="5dp"
             bootstrapbutton:bb_text_gravity="center"
