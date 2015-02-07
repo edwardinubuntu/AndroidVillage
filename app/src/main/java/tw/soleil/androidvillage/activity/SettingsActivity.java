@@ -52,7 +52,7 @@ public class SettingsActivity extends PreferenceActivity {
 
             SharedPreferences.Editor editor = preferences.edit();
             editor.putString(PREFERENCES_KEY_APP_VERSION, appVersion);
-            editor.commit();
+            editor.apply();
 
         } catch (PackageManager.NameNotFoundException e) {
             Log.e(AndroidVillage.TAG, e.getLocalizedMessage());
