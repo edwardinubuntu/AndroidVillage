@@ -86,6 +86,9 @@ public class MainActivity extends ActionBarActivity
             case 7:
                 fragment = MyStreetViewFragment.newInstance(position + 1);
                 break;
+            case 9:
+                fragment = NFCFragment.newInstance(position + 1);
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -123,6 +126,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 9:
                 mTitle = "Multiple Views";
+                break;
+            case 10:
+                mTitle = "NFC";
                 break;
         }
     }
