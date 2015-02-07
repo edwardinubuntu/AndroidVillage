@@ -7,12 +7,13 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import tw.soleil.androidvillage.Fragment.*;
 import tw.soleil.androidvillage.R;
 
-public class MainActivity extends Activity
+public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -51,8 +52,14 @@ public class MainActivity extends Activity
             return;
         }
 
-        FragmentManager fragmentManager = getFragmentManager();
+        if (position == 8) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, ViewPagerFragment.newInstance(position + 1))
+                    .commit();
+            return;
+        }
 
+        FragmentManager fragmentManager = getFragmentManager();
         Fragment fragment;
         switch (position) {
             case 0:
@@ -113,6 +120,9 @@ public class MainActivity extends Activity
                 break;
             case 8:
                 mTitle = "My Street View";
+                break;
+            case 9:
+                mTitle = "Multiple Views";
                 break;
         }
     }

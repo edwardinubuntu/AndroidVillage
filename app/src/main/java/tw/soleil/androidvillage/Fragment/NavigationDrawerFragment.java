@@ -49,7 +49,7 @@ public class NavigationDrawerFragment extends Fragment {
     private ListView mDrawerListView;
     private View mFragmentContainerView;
 
-    private int mCurrentSelectedPosition = 6;
+    private int mCurrentSelectedPosition = 8;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
@@ -104,7 +104,8 @@ public class NavigationDrawerFragment extends Fragment {
                         getString(R.string.title_camera),
                         "Korrnel Fair",
                         "My Google Map",
-                        "My Street View"
+                        "My Street View",
+                        "My Views"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
