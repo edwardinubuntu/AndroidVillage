@@ -21,4 +21,9 @@
 	<color name="theme_blue">#00A8C9</color>
 
     <color name="special_yellow">#FAE197</color>
+
+    <color name="green">#8BC34A</color>
+    <color name="primary_dark">#689F38</color>
+    <color name="primary">#8BC34A</color>
+    <color name="accent">#9CCC65</color>
 </resources>
