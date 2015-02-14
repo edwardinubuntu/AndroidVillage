@@ -18,8 +18,8 @@
 	<fragment
 		android:name="com.google.android.gms.maps.StreetViewPanoramaFragment"
 		android:id="@+id/street_view_panorama_fragment"
-		android:layout_width="602dp"
-		android:layout_height="750dp" />
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent" />
 
 
     <LinearLayout
@@ -40,7 +40,7 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
 
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             bootstrapbutton:bb_roundedCorners="false"
             android:text="home1"
             android:id="@+id/home1_button"
@@ -52,7 +52,7 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
 
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             bootstrapbutton:bb_roundedCorners="false"
             android:text="home2"
             android:id="@+id/home2_button"
@@ -64,7 +64,7 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
 
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             bootstrapbutton:bb_roundedCorners="false"
             android:text="taipei101"
             android:id="@+id/taipei101_button"
@@ -76,7 +76,7 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
 
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             bootstrapbutton:bb_roundedCorners="false"
             android:text="aircraft"
             android:id="@+id/aircraft_button"

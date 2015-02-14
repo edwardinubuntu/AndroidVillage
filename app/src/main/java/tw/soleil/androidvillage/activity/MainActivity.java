@@ -89,6 +89,9 @@ public class MainActivity extends ActionBarActivity
             case 9:
                 fragment = NFCFragment.newInstance(position + 1);
                 break;
+            case 10:
+                fragment = NotifyFragment.newInstance(position + 1 );
+                break;
             default:
                 fragment = PlaceholderFragment.newInstance(position + 1);
                 break;
@@ -129,6 +132,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 10:
                 mTitle = "NFC";
+                break;
+            case 11:
+                mTitle = "Notify";
                 break;
         }
     }

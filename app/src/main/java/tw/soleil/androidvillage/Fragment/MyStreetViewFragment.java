@@ -10,12 +10,14 @@
 
 package tw.soleil.androidvillage.Fragment;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,6 +25,8 @@ import com.google.android.gms.maps.OnStreetViewPanoramaReadyCallback;
 import com.google.android.gms.maps.StreetViewPanorama;
 import com.google.android.gms.maps.StreetViewPanoramaFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.StreetViewPanoramaLocation;
+
 import tw.soleil.androidvillage.R;
 
 /**
@@ -40,12 +44,21 @@ public class MyStreetViewFragment extends PlaceholderFragment implements OnStree
 
     private BootstrapButton aircraftButton;
 
+    private Location pickedLocation;
+
     public static MyStreetViewFragment newInstance(int sectionNumber) {
         MyStreetViewFragment fragment = new MyStreetViewFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        pickedLocation = new Location("Pick Location");
     }
 
     @Override
@@ -72,19 +85,73 @@ public class MyStreetViewFragment extends PlaceholderFragment implements OnStree
         home2Button = (BootstrapButton)rootView.findViewById(R.id.home2_button);
         taipei101Button = (BootstrapButton)rootView.findViewById(R.id.taipei101_button);
         aircraftButton = (BootstrapButton)rootView.findViewById(R.id.aircraft_button);
+
         return rootView;
     }
 
 
 
     @Override
-    public void onStreetViewPanoramaReady(StreetViewPanorama streetViewPanorama) {
+    public void onStreetViewPanoramaReady(final StreetViewPanorama streetViewPanorama) {
         streetViewPanorama.setPosition(new LatLng(25.0336, 121.5650));
 
+        final LatLng homeSweetHome = new LatLng(25.027509,121.538452);
+        home1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                pickedLocation.setLongitude(homeSweetHome.longitude);
+                pickedLocation.setLatitude(homeSweetHome.latitude);
+
+                streetViewPanorama.setPosition(homeSweetHome);
+            }
+        });
 
 
+        home2Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LatLng home = new LatLng(24.784539,121.017765);
+                pickedLocation.setLongitude(home.longitude);
+                pickedLocation.setLatitude(home.latitude);
+                streetViewPanorama.setPosition(home);
+            }
+        });
+        taipei101Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LatLng taipei101 = new LatLng(25.0336, 121.5650);
+                pickedLocation.setLongitude(taipei101.longitude);
+                pickedLocation.setLatitude(taipei101.latitude);
+                streetViewPanorama.setPosition(taipei101);
+            }
+        });
+        aircraftButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LatLng air1 = new LatLng(25.079651,121.234217);
+                pickedLocation.setLongitude(air1.longitude);
+                pickedLocation.setLatitude(air1.latitude);
+                streetViewPanorama.setPosition(air1);
+            }
+        });
 
 
+        streetViewPanorama.setOnStreetViewPanoramaChangeListener(new StreetViewPanorama.OnStreetViewPanoramaChangeListener() {
+            @Override
+            public void onStreetViewPanoramaChange(StreetViewPanoramaLocation streetViewPanoramaLocation) {
+
+                Location currentLocation = new Location("current location");
+                currentLocation.setLongitude(streetViewPanoramaLocation.position.longitude);
+                currentLocation.setLatitude(streetViewPanoramaLocation.position.latitude);
+
+                if (pickedLocation.getLatitude() >0 && pickedLocation.getLongitude() > 0) {
+                    float distance = pickedLocation.distanceTo(currentLocation);
+
+                    Toast.makeText(getActivity(), "距離出發位置：：" + (int) distance + " M", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
     }

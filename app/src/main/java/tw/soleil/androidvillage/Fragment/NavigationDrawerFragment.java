@@ -106,7 +106,8 @@ public class NavigationDrawerFragment extends Fragment {
                         "My Google Map",
                         "My Street View",
                         "Multiple Views",
-                        "NFC"
+                        "NFC",
+                        "Notify"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
