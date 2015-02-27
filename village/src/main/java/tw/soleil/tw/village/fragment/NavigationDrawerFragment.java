@@ -31,7 +31,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import tw.soleil.tw.village.R;
 
@@ -288,7 +287,7 @@ public class NavigationDrawerFragment extends Fragment {
     public static String[] getDrawerListTitle(Context context) {
         return new String[]{
                 context.getString(R.string.title_section_home),
-                context.getString(R.string.title_section2),
+                context.getString(R.string.title_section_nfc_message),
                 context.getString(R.string.title_section3),
         };
     }

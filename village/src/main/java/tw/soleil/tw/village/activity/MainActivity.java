@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import tw.soleil.tw.village.fragment.NFCFragment;
 import tw.soleil.tw.village.fragment.NavigationDrawerFragment;
 import tw.soleil.tw.village.R;
 import tw.soleil.tw.village.fragment.PlaceholderFragment;
@@ -61,9 +62,20 @@ public class MainActivity extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position))
-                .commit();
+
+        switch (position) {
+            case 0:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position))
+                        .commit();
+                break;
+            case 1:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, NFCFragment.newInstance(position))
+                        .commit();
+                break;
+        }
+
     }
 
     public void onSectionAttached(int number) {

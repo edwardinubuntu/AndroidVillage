@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (c) 2015. Soleil Studio
   ~
@@ -8,21 +9,32 @@
   ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
   -->
 
-<resources>
-    <string name="app_name">Village</string>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <string name="title_section_home">Home</string>
-    <string name="title_section_nfc_message">NFC Bean</string>
-    <string name="title_section3">Section 3</string>
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <TextView
+        android:text="NFC"
 
-    <string name="action_example">Example action</string>
+        android:id="@+id/nfc_title_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_below="@+id/nfc_title_view"
+        android:id="@+id/nfc_text_view"
+        android:layout_margin="5dp"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="-"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-    <string name="action_settings">Settings</string>
+    </LinearLayout>
 
-    <string name="setting_about">About</string>
-    <string name="setting_version_summary">Version Summary</string>
-    <string name="setting_version_title">Version</string>
-</resources>
+</RelativeLayout>
