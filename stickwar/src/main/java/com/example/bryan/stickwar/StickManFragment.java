@@ -51,5 +51,8 @@ public class StickManFragment extends Fragment {
                 .noCache()
                 .progressBar(progressBar)
                 .intoImageView(imageView);
+
+        TextView contentTextView = (TextView) view.findViewById(R.id.stick_man_content_text_view);
+        contentTextView .setText(dataObject.getString("content"));
     }
 }
