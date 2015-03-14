@@ -1,5 +1,6 @@
 package com.example.bryan.stickwar;
 
+import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -55,10 +56,19 @@ public class MainActivity extends ActionBarActivity {
     private void loadStickManWar() {
 
 
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("StickMan Cards");
+        progressDialog.setMessage("Loading");
+        progressDialog.setCancelable(false);
+
+        progressDialog.show();
         ParseQuery stickmanQuery = new ParseQuery("StickMan");
         stickmanQuery.findInBackground(new FindCallback() {
             @Override
             public void done(List list, ParseException e) {
+
+                progressDialog.dismiss();
+
                 if (e !=null) {
                     Log.e("StickMan", "Parse find in background: " + e.getLocalizedMessage());
                 }
@@ -67,7 +77,6 @@ public class MainActivity extends ActionBarActivity {
                     stickManWarList.clear();
                     stickManWarList.addAll(list);
                     pagerAdapter.notifyDataSetChanged();
-
 
                 }
             }

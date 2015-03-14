@@ -8,9 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.koushikdutta.ion.Ion;
+import com.koushikdutta.ion.ProgressCallback;
 import com.parse.ParseObject;
 
 /**
@@ -41,8 +43,13 @@ public class StickManFragment extends Fragment {
 
         ImageView imageView = (ImageView)view.findViewById(R.id.stick_man_image_view);
 
+        final ProgressBar progressBar = (ProgressBar)view.findViewById(R.id.stick_man_image_loading_progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
         Ion.with(getActivity())
                 .load(dataObject.getParseFile("pictureURL").getUrl())
+                .noCache()
+                .progressBar(progressBar)
                 .intoImageView(imageView);
     }
 }

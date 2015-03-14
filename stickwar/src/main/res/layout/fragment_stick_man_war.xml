@@ -2,7 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_material_dark">
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@drawable/layout_background_shadow">
 
     <TextView
         android:layout_width="wrap_content"
@@ -10,11 +12,26 @@
         android:text="New Text"
         android:textSize="54sp"
         android:id="@+id/title_text_view"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="#1993BC" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:layout_centerInParent="true"
+            style="@android:style/Widget.Holo.ProgressBar"
+            android:id="@+id/stick_man_image_loading_progressBar"
+            android:layout_width="fill_parent"
+            android:layout_margin="50dp"
+            android:layout_height="wrap_content" />
 
     <ImageView
         android:id="@+id/stick_man_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    </RelativeLayout>
 
 </LinearLayout>
