@@ -15,8 +15,18 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
+        android:id="@+id/basket_imageView"
+        android:src="@drawable/bamboo_basket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ball_imageView"
-        android:src="@drawable/ball_clear"/>
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:src="@drawable/ball_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ball_imageView" />
+
+
 </RelativeLayout>

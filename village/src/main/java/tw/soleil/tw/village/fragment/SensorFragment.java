@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tw.soleil.tw.village.R;
 
@@ -24,6 +25,7 @@ public class SensorFragment extends PlaceholderFragment {
 
     private TextView sensorEventText;
     private ImageView ballImageView;
+    private ImageView bambooBasketImageView;
 
     private RelativeLayout relativeLayout;
 
@@ -42,7 +44,7 @@ public class SensorFragment extends PlaceholderFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         SensorManager sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -62,10 +64,24 @@ public class SensorFragment extends PlaceholderFragment {
                 }
                 RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) ballImageView.getLayoutParams();
 
-                params.leftMargin = (int)((10-event.values[0]) * moveX);
-                params.topMargin = (int)((10+event.values[1]) * moveY);
+                params.leftMargin = (int)((10-event.values[0] * 2) * moveX);
+                params.topMargin = (int)((10+event.values[1] * 2) * moveY);
 
                 ballImageView.setLayoutParams(params);
+
+                RelativeLayout.LayoutParams bambooParams = (RelativeLayout.LayoutParams)bambooBasketImageView.getLayoutParams();
+                int[] location = new int[2];
+                bambooBasketImageView.getLocationOnScreen(location);
+                int minX = location[0];
+                int maxX = minX + bambooBasketImageView.getMeasuredWidth();
+                int minY = location[1];
+                int maxY = minY + bambooBasketImageView.getMeasuredHeight();
+
+                if (params.leftMargin > minX && params.leftMargin < maxX
+                        &&
+                        params.topMargin > minY && params.topMargin < maxY) {
+                    Toast.makeText(getActivity(), "得分", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -89,5 +105,7 @@ public class SensorFragment extends PlaceholderFragment {
         ballImageView = (ImageView) view.findViewById(R.id.ball_imageView);
 
         relativeLayout = (RelativeLayout) view.findViewById(R.id.sensor_layout);
+
+        bambooBasketImageView = (ImageView) view.findViewById(R.id.basket_imageView);
     }
 }
