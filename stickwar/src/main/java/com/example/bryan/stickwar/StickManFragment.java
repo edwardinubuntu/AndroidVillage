@@ -25,10 +25,6 @@ public class StickManFragment extends Fragment {
     public StickManFragment() {
     }
 
-    public StickManFragment(ParseObject dataObject) {
-        this.dataObject = dataObject;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_stick_man_war,container,false);
@@ -54,5 +50,13 @@ public class StickManFragment extends Fragment {
 
         TextView contentTextView = (TextView) view.findViewById(R.id.stick_man_content_text_view);
         contentTextView .setText(dataObject.getString("content"));
+    }
+
+    public ParseObject getDataObject() {
+        return dataObject;
+    }
+
+    public void setDataObject(ParseObject dataObject) {
+        this.dataObject = dataObject;
     }
 }

@@ -116,7 +116,9 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public Fragment getItem(int position) {
-            return new StickManFragment(stickManWarList.get(position));
+            StickManFragment stickManFragment = new StickManFragment();
+            stickManFragment.setDataObject(stickManWarList.get(position));
+            return stickManFragment;
         }
 
         @Override
