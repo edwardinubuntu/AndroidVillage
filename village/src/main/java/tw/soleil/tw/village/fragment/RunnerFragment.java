@@ -7,7 +7,10 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Timer;
@@ -20,6 +23,8 @@ import tw.soleil.tw.village.R;
  * Created by bryan on 2015/4/11.
  */
 public class RunnerFragment extends PlaceholderFragment {
+
+    private int numberOfSteps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,14 +50,29 @@ public class RunnerFragment extends PlaceholderFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        numberOfSteps = 0;
+
         final ImageButton beforeButton = (ImageButton)view.findViewById(R.id.imageButtonBefore);
         final ImageButton nextButton = (ImageButton)view.findViewById(R.id.imageButtonNext);
+
+        final ImageView trollFaceImageView = (ImageView)view.findViewById(R.id.trollFaceImageView);
+
+        final TextView stepsTextView = (TextView)view.findViewById(R.id.steps_text_view);
+
+        beforeButton.setEnabled(false);
 
         beforeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 beforeButton.setEnabled(false);
                 nextButton.setEnabled(true);
+
+//                trollFaceImageView.setImageResource(R.drawable.troll_face_left);
+                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_left);
+
+                numberOfSteps++;
+
+                stepsTextView.setText("Steps: "+numberOfSteps);
             }
         });
 
@@ -61,6 +81,9 @@ public class RunnerFragment extends PlaceholderFragment {
             public void onClick(View v) {
                 nextButton.setEnabled(false);
                 beforeButton.setEnabled(true);
+
+//                trollFaceImageView.setImageResource(R.drawable.troll_face_right);
+                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_right);
             }
         });
 
@@ -77,5 +100,28 @@ public class RunnerFragment extends PlaceholderFragment {
                 timerTextView.setText("TIME'S UP");
             }
         }.start();
+    }
+
+    private void changeImageWithAnimation(final ImageView imageView, final int imageResource) {
+        final Animation anim_out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);
+        final Animation anim_in  = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
+        anim_out.setDuration(200);
+        anim_in.setDuration(200);
+        anim_out.setAnimationListener(new Animation.AnimationListener()
+        {
+            @Override public void onAnimationStart(Animation animation) {}
+            @Override public void onAnimationRepeat(Animation animation) {}
+            @Override public void onAnimationEnd(Animation animation)
+            {
+                imageView.setImageResource(imageResource);
+                anim_in.setAnimationListener(new Animation.AnimationListener() {
+                    @Override public void onAnimationStart(Animation animation) {}
+                    @Override public void onAnimationRepeat(Animation animation) {}
+                    @Override public void onAnimationEnd(Animation animation) {}
+                });
+                imageView.startAnimation(anim_in);
+            }
+        });
+        imageView.startAnimation(anim_out);
     }
 }
