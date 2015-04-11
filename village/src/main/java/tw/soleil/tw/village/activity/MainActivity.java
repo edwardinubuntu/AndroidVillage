@@ -28,6 +28,7 @@ import tw.soleil.tw.village.fragment.NFCFragment;
 import tw.soleil.tw.village.fragment.NavigationDrawerFragment;
 import tw.soleil.tw.village.R;
 import tw.soleil.tw.village.fragment.PlaceholderFragment;
+import tw.soleil.tw.village.fragment.RunnerFragment;
 import tw.soleil.tw.village.fragment.SensorFragment;
 
 
@@ -78,6 +79,11 @@ public class MainActivity extends ActionBarActivity
             case 2:
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, SensorFragment.newInstance(position))
+                        .commit();
+                break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, RunnerFragment.newInstance(position))
                         .commit();
                 break;
         }

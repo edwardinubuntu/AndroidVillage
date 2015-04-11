@@ -289,6 +289,7 @@ public class NavigationDrawerFragment extends Fragment {
                 context.getString(R.string.title_section_home),
                 context.getString(R.string.title_section_nfc_message),
                 "Sensor",
+                "Runner",
         };
     }
 }
