@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.TimerTask;
 import java.util.logging.Handler;
 
 import tw.soleil.tw.village.R;
+import tw.soleil.tw.village.activity.MainActivity;
 
 /**
  * Created by bryan on 2015/4/11.
@@ -29,6 +31,8 @@ public class RunnerFragment extends PlaceholderFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ((MainActivity)getActivity()).getSupportActionBar().hide();
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
     }
@@ -68,7 +72,8 @@ public class RunnerFragment extends PlaceholderFragment {
                 nextButton.setEnabled(true);
 
 //                trollFaceImageView.setImageResource(R.drawable.troll_face_left);
-                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_left);
+//                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_left);
+                trollFaceImageView.setImageResource(R.drawable.troll_face_left);
 
                 numberOfSteps++;
 
@@ -82,14 +87,14 @@ public class RunnerFragment extends PlaceholderFragment {
                 nextButton.setEnabled(false);
                 beforeButton.setEnabled(true);
 
-//                trollFaceImageView.setImageResource(R.drawable.troll_face_right);
-                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_right);
+                trollFaceImageView.setImageResource(R.drawable.troll_face_right);
+//                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_right);
             }
         });
 
         final TextView timerTextView = (TextView) view.findViewById(R.id.timerTextView);
 
-        CountDownTimer countDownTimer = new CountDownTimer(30000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(5 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerTextView.setText("Timer: " + millisUntilFinished / 1000);
@@ -98,6 +103,13 @@ public class RunnerFragment extends PlaceholderFragment {
             @Override
             public void onFinish() {
                 timerTextView.setText("TIME'S UP");
+
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .add(R.id.container, GameOverFragment.newInstance())
+                        .commit();
+
+
             }
         }.start();
     }

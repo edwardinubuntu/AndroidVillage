@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:background="#E63c3f41">
+
+    <RelativeLayout
+        android:background="@drawable/game_over_corners"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="120dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="__GAME__"
+            android:id="@+id/textView"
+            android:layout_marginTop="53dp"
+            android:textSize="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="OVER"
+            android:id="@+id/textView2"
+            android:layout_alignParentEnd="true"
+            android:textSize="80dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="42dp"
+            android:layout_alignBottom="@+id/imageView" />
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/game_over_lol"
+            android:layout_below="@+id/textView"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2" />
+
+        <com.gitonway.lee.risenumber.lib.RiseNumberTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="50"
+            android:id="@+id/score_textview"
+            android:textSize="80dp"
+            android:layout_alignRight="@+id/textView2"
+            android:layout_alignEnd="@+id/textView2"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:gravity="right|end" />
+    </RelativeLayout>
+
+</LinearLayout>
