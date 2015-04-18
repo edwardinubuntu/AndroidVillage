@@ -1,1 +1,1 @@
-include ':app', ':village', ':stickwar'
+include ':app', ':village', ':stickwar', ':library'
