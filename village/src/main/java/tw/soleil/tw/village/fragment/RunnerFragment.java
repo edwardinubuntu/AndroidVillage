@@ -94,7 +94,7 @@ public class RunnerFragment extends PlaceholderFragment {
 
         final TextView timerTextView = (TextView) view.findViewById(R.id.timerTextView);
 
-        CountDownTimer countDownTimer = new CountDownTimer(5 * 1000, 1000) {
+        CountDownTimer countDownTimer = new CountDownTimer(30 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerTextView.setText("Timer: " + millisUntilFinished / 1000);
