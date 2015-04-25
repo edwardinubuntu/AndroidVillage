@@ -50,6 +50,8 @@
 
         <com.gitonway.lee.risenumber.lib.RiseNumberTextView
             android:layout_width="wrap_content"
+            android:background="@drawable/layout_boarder"
+            android:padding="10dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="0"
@@ -61,6 +63,17 @@
             android:layout_alignLeft="@+id/textView"
             android:layout_alignStart="@+id/textView"
             android:gravity="right|end" />
+
+        <ImageButton
+            android:layout_width="160dp"
+            android:layout_height="100dp"
+            android:id="@+id/restart_imageButton"
+            android:src="@drawable/ic_action_action_cached"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginBottom="46dp"
+            android:scaleType="fitCenter" />
     </RelativeLayout>
 
 </LinearLayout>

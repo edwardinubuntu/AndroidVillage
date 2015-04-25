@@ -55,8 +55,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="steps"
         android:id="@+id/steps_text_view"
-        android:layout_alignBottom="@+id/timerTextView"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp" />
 
 </RelativeLayout>

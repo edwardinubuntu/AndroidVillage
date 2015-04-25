@@ -1,6 +1,7 @@
 package tw.soleil.tw.village.fragment;
 
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -28,6 +29,10 @@ public class RunnerFragment extends PlaceholderFragment {
 
     private int numberOfSteps;
 
+    private TextView stepsTextView;
+
+    private MediaPlayer countDownMediaPlayer;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,14 @@ public class RunnerFragment extends PlaceholderFragment {
         ((MainActivity)getActivity()).getSupportActionBar().hide();
 
         getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+
+        countDownMediaPlayer = MediaPlayer.create(getActivity(), R.raw.motion_graphics);
+    }
+
+    public void onDestroy() {
+        countDownMediaPlayer.stop();
+        super.onDestroy();
+
     }
 
     public static RunnerFragment newInstance(int sectionNumber) {
@@ -54,14 +67,12 @@ public class RunnerFragment extends PlaceholderFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        numberOfSteps = 0;
-
         final ImageButton beforeButton = (ImageButton)view.findViewById(R.id.imageButtonBefore);
         final ImageButton nextButton = (ImageButton)view.findViewById(R.id.imageButtonNext);
 
         final ImageView trollFaceImageView = (ImageView)view.findViewById(R.id.trollFaceImageView);
 
-        final TextView stepsTextView = (TextView)view.findViewById(R.id.steps_text_view);
+        stepsTextView = (TextView)view.findViewById(R.id.steps_text_view);
 
         beforeButton.setEnabled(false);
 
@@ -92,21 +103,42 @@ public class RunnerFragment extends PlaceholderFragment {
             }
         });
 
-        final TextView timerTextView = (TextView) view.findViewById(R.id.timerTextView);
+        startGaming();
+    }
 
-        CountDownTimer countDownTimer = new CountDownTimer(30 * 1000, 1000) {
+    private void startGaming() {
+
+        numberOfSteps = 0;
+        stepsTextView.setText("Steps: "+numberOfSteps);
+
+        final TextView timerTextView = (TextView)getActivity().findViewById(R.id.timerTextView);
+
+        CountDownTimer countDownTimer = new CountDownTimer(20 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timerTextView.setText("Timer: " + millisUntilFinished / 1000);
+
+                if (millisUntilFinished / 1000 == 15) {
+                    countDownMediaPlayer.start();
+                }
             }
 
             @Override
             public void onFinish() {
                 timerTextView.setText("TIME'S UP");
 
+                GameOverFragment gameOverFragment = GameOverFragment.newInstance();
+                gameOverFragment.setOnRestartListener(new GameOverFragment.OnRestartListener() {
+                    @Override
+                    public void onRestart() {
+                        startGaming();
+                    }
+                });
+                gameOverFragment.setTotalSteps(numberOfSteps);
+
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
-                        .add(R.id.container, GameOverFragment.newInstance())
+                        .add(R.id.container, gameOverFragment)
                         .commit();
 
 
@@ -114,26 +146,4 @@ public class RunnerFragment extends PlaceholderFragment {
         }.start();
     }
 
-    private void changeImageWithAnimation(final ImageView imageView, final int imageResource) {
-        final Animation anim_out = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_out);
-        final Animation anim_in  = AnimationUtils.loadAnimation(getActivity(), android.R.anim.fade_in);
-        anim_out.setDuration(200);
-        anim_in.setDuration(200);
-        anim_out.setAnimationListener(new Animation.AnimationListener()
-        {
-            @Override public void onAnimationStart(Animation animation) {}
-            @Override public void onAnimationRepeat(Animation animation) {}
-            @Override public void onAnimationEnd(Animation animation)
-            {
-                imageView.setImageResource(imageResource);
-                anim_in.setAnimationListener(new Animation.AnimationListener() {
-                    @Override public void onAnimationStart(Animation animation) {}
-                    @Override public void onAnimationRepeat(Animation animation) {}
-                    @Override public void onAnimationEnd(Animation animation) {}
-                });
-                imageView.startAnimation(anim_in);
-            }
-        });
-        imageView.startAnimation(anim_out);
-    }
 }
