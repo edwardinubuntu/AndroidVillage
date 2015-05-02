@@ -139,7 +139,7 @@ public class RunnerFragment extends PlaceholderFragment {
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()
                         .add(R.id.container, gameOverFragment)
-                        .commit();
+                        .commitAllowingStateLoss();
 
 
             }
