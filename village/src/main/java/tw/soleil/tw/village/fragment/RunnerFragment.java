@@ -82,8 +82,6 @@ public class RunnerFragment extends PlaceholderFragment {
                 beforeButton.setEnabled(false);
                 nextButton.setEnabled(true);
 
-//                trollFaceImageView.setImageResource(R.drawable.troll_face_left);
-//                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_left);
                 trollFaceImageView.setImageResource(R.drawable.troll_face_left);
 
                 numberOfSteps++;
@@ -99,7 +97,6 @@ public class RunnerFragment extends PlaceholderFragment {
                 beforeButton.setEnabled(true);
 
                 trollFaceImageView.setImageResource(R.drawable.troll_face_right);
-//                changeImageWithAnimation(trollFaceImageView, R.drawable.troll_face_right);
             }
         });
 

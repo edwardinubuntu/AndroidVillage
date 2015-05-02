@@ -65,36 +65,25 @@ public class GameOverFragment extends Fragment {
         scoreTextView = (RiseNumberTextView) view.findViewById(R.id.score_textview);
 
 
-        int totalScore = 0;
+        int totalScore = calculateTotalScore();
 
-        // Calculate our score
-        if (totalSteps >= 30) {
-            totalScore = totalSteps * 4;
-        } else if (totalSteps >= 20) {
-            totalScore = totalSteps * 3;
-        } else if (totalSteps >= 10) {
-            totalScore = totalSteps * 2;
-        } else {
-            totalScore = totalSteps * 1;
-        }
+        coinUpMediaPlayer.setLooping(true);
+        coinUpMediaPlayer.start();
 
-            coinUpMediaPlayer.setLooping(true);
-            coinUpMediaPlayer.start();
+        CountDownTimer countDownTimer = new CountDownTimer(totalScore / 50 * 1000, 1000) {
 
-            CountDownTimer countDownTimer = new CountDownTimer(totalScore / 50 * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
 
-                @Override
-                public void onTick(long millisUntilFinished) {
+            }
 
-                }
-
-                @Override
-                public void onFinish() {
-                    coinUpMediaPlayer.setLooping(false);
-                    coinUpMediaPlayer.stop();
-                }
-            };
-            countDownTimer.start();
+            @Override
+            public void onFinish() {
+                coinUpMediaPlayer.setLooping(false);
+                coinUpMediaPlayer.stop();
+            }
+        };
+        countDownTimer.start();
 
 
         scoreTextView
@@ -111,6 +100,22 @@ public class GameOverFragment extends Fragment {
                 }
             }
         });
+    }
+
+    private int calculateTotalScore() {
+        int totalScore = 0;
+
+        // Calculate our score
+        if (totalSteps >= 30) {
+            totalScore = totalSteps * 4;
+        } else if (totalSteps >= 20) {
+            totalScore = totalSteps * 3;
+        } else if (totalSteps >= 10) {
+            totalScore = totalSteps * 2;
+        } else {
+            totalScore = totalSteps * 1;
+        }
+        return totalScore;
     }
 
     public OnRestartListener getOnRestartListener() {
