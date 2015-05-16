@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -72,6 +75,8 @@ public class RunnerFragment extends PlaceholderFragment {
 
         final ImageView trollFaceImageView = (ImageView)view.findViewById(R.id.trollFaceImageView);
 
+        final TextView yourNameTextView = (TextView)view.findViewById(R.id.name_Text_View);
+
         stepsTextView = (TextView)view.findViewById(R.id.steps_text_view);
 
         beforeButton.setEnabled(false);
@@ -100,7 +105,44 @@ public class RunnerFragment extends PlaceholderFragment {
             }
         });
 
-        startGaming();
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        AskNameDialog askNameDialog = new AskNameDialog() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (EditorInfo.IME_ACTION_DONE == actionId){
+
+                    EditText nameEditText = (EditText)getDialog().findViewById(R.id.your_name_editText);
+                    if (nameEditText.getText() != null) {
+                        yourNameTextView.setText(nameEditText.getText().toString());
+
+                        startGaming();
+
+                        dismiss();
+                    }
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public void onClick(View v) {
+
+                EditText nameEditText = (EditText)getDialog().findViewById(R.id.your_name_editText);
+                if (nameEditText.getText() != null) {
+                    yourNameTextView.setText(nameEditText.getText().toString());
+
+                    startGaming();
+
+                    dismiss();
+                }
+
+
+            }
+        };
+        askNameDialog.getDialog().setTitle(R.string.app_name);
+        askNameDialog.show(fragmentManager, "ask name");
+
+
     }
 
     private void startGaming() {
