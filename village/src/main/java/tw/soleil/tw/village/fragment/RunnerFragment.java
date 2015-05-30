@@ -149,6 +149,7 @@ public class RunnerFragment extends PlaceholderFragment {
         numberOfSteps = 0;
         stepsTextView.setText("Steps: "+numberOfSteps);
 
+        final TextView yourNameTextView = (TextView)getActivity().findViewById(R.id.name_Text_View);
         final TextView timerTextView = (TextView)getActivity().findViewById(R.id.timerTextView);
 
         CountDownTimer countDownTimer = new CountDownTimer(20 * 1000, 1000) {
@@ -173,6 +174,7 @@ public class RunnerFragment extends PlaceholderFragment {
                     }
                 });
                 gameOverFragment.setTotalSteps(numberOfSteps);
+                gameOverFragment.setPlayerName(yourNameTextView.getText().toString());
 
                 FragmentManager fragmentManager = getFragmentManager();
                 fragmentManager.beginTransaction()

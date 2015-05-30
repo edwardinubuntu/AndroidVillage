@@ -6,6 +6,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,10 +14,16 @@ import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gitonway.lee.risenumber.lib.RiseNumberTextView;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.io.IOException;
 
@@ -32,6 +39,8 @@ public class GameOverFragment extends Fragment {
     private OnRestartListener onRestartListener;
 
     private int totalSteps;
+
+    private String playerName;
 
     private MediaPlayer coinUpMediaPlayer;
 
@@ -64,8 +73,19 @@ public class GameOverFragment extends Fragment {
 
         scoreTextView = (RiseNumberTextView) view.findViewById(R.id.score_textview);
 
+        Button rankingButton = (Button)view.findViewById(R.id.ranking_button);
+        rankingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .add(R.id.container, new RankingFragment())
+                        .commitAllowingStateLoss();
+            }
+        });
 
-        int totalScore = calculateTotalScore();
+
+        final int totalScore = calculateTotalScore();
 
         coinUpMediaPlayer.setLooping(true);
         coinUpMediaPlayer.start();
@@ -94,12 +114,36 @@ public class GameOverFragment extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().remove(GameOverFragment.this).commit();
-                if (getOnRestartListener() != null) {
-                    getOnRestartListener().onRestart();
+
+                Toast.makeText(getActivity(), "Upload score", Toast.LENGTH_SHORT).show();
+
+                if (getPlayerName() != null && getPlayerName().length() > 0) {
+                    ParseObject playerScore = ParseObject.create("Score");
+                    playerScore.put("playerName", getPlayerName());
+                    playerScore.put("score", totalScore);
+                    playerScore.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                backAndRestart();
+                            }
+                        }
+                    });
+
+
+                } else {
+                    backAndRestart();
                 }
+
             }
         });
+    }
+
+    private void backAndRestart() {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(this).commit();
+        if (getOnRestartListener() != null) {
+            getOnRestartListener().onRestart();
+        }
     }
 
     private int calculateTotalScore() {
@@ -136,5 +180,13 @@ public class GameOverFragment extends Fragment {
 
     public void setTotalSteps(int totalSteps) {
         this.totalSteps = totalSteps;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 }
