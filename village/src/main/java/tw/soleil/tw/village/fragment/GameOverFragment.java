@@ -87,6 +87,19 @@ public class GameOverFragment extends Fragment {
 
         final int totalScore = calculateTotalScore();
 
+        if (getPlayerName() != null && getPlayerName().length() > 0) {
+            ParseObject playerScore = ParseObject.create("Score");
+            playerScore.put("playerName", getPlayerName());
+            playerScore.put("score", totalScore);
+            playerScore.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                }
+            });
+        }
+
+
+
         coinUpMediaPlayer.setLooping(true);
         coinUpMediaPlayer.start();
 
@@ -117,23 +130,7 @@ public class GameOverFragment extends Fragment {
 
                 Toast.makeText(getActivity(), "Upload score", Toast.LENGTH_SHORT).show();
 
-                if (getPlayerName() != null && getPlayerName().length() > 0) {
-                    ParseObject playerScore = ParseObject.create("Score");
-                    playerScore.put("playerName", getPlayerName());
-                    playerScore.put("score", totalScore);
-                    playerScore.saveInBackground(new SaveCallback() {
-                        @Override
-                        public void done(ParseException e) {
-                            if (e == null) {
-                                backAndRestart();
-                            }
-                        }
-                    });
-
-
-                } else {
-                    backAndRestart();
-                }
+                backAndRestart();
 
             }
         });

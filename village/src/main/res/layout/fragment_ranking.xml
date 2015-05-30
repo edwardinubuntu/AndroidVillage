@@ -14,7 +14,15 @@
         android:layout_marginRight="80dp"
         android:layout_marginBottom="120dp">
 
+         <TextView
+             android:padding="10dp"
+             android:textAppearance="?android:textAppearanceLarge"
+             android:text="World Wide Rankings"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+
 <ListView
+    android:layout_below="@+id/close_button"
     android:id="@+id/ranking_list_view"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" />
