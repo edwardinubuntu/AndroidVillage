@@ -139,7 +139,6 @@ public class RunnerFragment extends PlaceholderFragment {
 
             }
         };
-        askNameDialog.getDialog().setTitle(R.string.app_name);
         askNameDialog.show(fragmentManager, "ask name");
 
 

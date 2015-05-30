@@ -18,10 +18,18 @@ import tw.soleil.tw.village.R;
  */
 public abstract class AskNameDialog extends DialogFragment implements TextView.OnEditorActionListener, View.OnClickListener {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_ask_name, container);
+
+        getDialog().setTitle(R.string.app_name);
 
         EditText editText = (EditText)view.findViewById(R.id.your_name_editText);
         editText.setOnEditorActionListener(this);
