@@ -1,4 +1,4 @@
-package com.example.bryan.trollololol.fragment;
+package com.androidvillage.bryan.trollololol.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.bryan.trollololol.R;
+import com.androidvillage.bryan.trollololol.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.example.bryan.trollololol.fragment;
+package com.androidvillage.bryan.trollololol.fragment;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -19,7 +19,7 @@ import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
 
-import com.example.bryan.trollololol.R;
+import com.androidvillage.bryan.trollololol.R;
 
 /**
  * Created by bryan on 2015/4/18.

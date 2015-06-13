@@ -1,4 +1,4 @@
-package com.example.bryan.trollololol.fragment;
+package com.androidvillage.bryan.trollololol.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -21,7 +21,7 @@ import com.parse.ParseQuery;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.bryan.trollololol.R;
+import com.androidvillage.bryan.trollololol.R;
 
 /**
  * Created by bryan on 2015/5/30.

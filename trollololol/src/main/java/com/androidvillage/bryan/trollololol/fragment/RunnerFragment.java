@@ -1,4 +1,4 @@
-package com.example.bryan.trollololol.fragment;
+package com.androidvillage.bryan.trollololol.fragment;
 
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
@@ -16,8 +16,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.bryan.trollololol.activity.MainActivity;
-import com.example.bryan.trollololol.R;
+import com.androidvillage.bryan.trollololol.activity.MainActivity;
+import com.androidvillage.bryan.trollololol.R;
 
 /**
  * Created by bryan on 2015/4/11.

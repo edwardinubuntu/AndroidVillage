@@ -1,4 +1,4 @@
-package com.example.bryan.trollololol.activity;
+package com.androidvillage.bryan.trollololol.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-import com.example.bryan.trollololol.R;
-import com.example.bryan.trollololol.fragment.RunnerFragment;
+import com.androidvillage.bryan.trollololol.fragment.RunnerFragment;
+import com.androidvillage.bryan.trollololol.R;
 
 
 public class MainActivity extends ActionBarActivity {
