@@ -1,4 +1,4 @@
-package tw.soleil.tw.village.fragment;
+package com.example.bryan.trollololol.fragment;
 
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
@@ -10,21 +10,14 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.logging.Handler;
-
-import tw.soleil.tw.village.R;
-import tw.soleil.tw.village.activity.MainActivity;
+import com.example.bryan.trollololol.activity.MainActivity;
+import com.example.bryan.trollololol.R;
 
 /**
  * Created by bryan on 2015/4/11.
