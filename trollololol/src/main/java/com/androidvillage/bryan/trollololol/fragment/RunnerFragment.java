@@ -133,7 +133,7 @@ public class RunnerFragment extends PlaceholderFragment {
 
             }
         };
-
+        askNameDialog.setCancelable(false);
         askNameDialog.show(fragmentManager, "ask name");
 
 
